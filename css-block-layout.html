@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0 auto;
+    }
+    div.header {
+      margin: 0;
+      height: 20px;
+      background-color: black;
+      color: #fff;
+      padding-left: 444px;
+    }
+    p{
+      width: 600px;
+    }
+    p {
+      margin-top: 20px;
+    }
+    .b {
+      width: 600px;
+      margin: 20px auto;
+    }
+    .b span {
+      display: block;
+      width: 180px;
+      height: 40px;
+      background-color: pink;
+      border: 2px solid black;
+      text-align: center;
+      line-height: 40px;
+      margin-bottom: 15px;
+    }
+    /* .b span:nth-child(3n + 1) {
+      margin: 0 0 15px 0;
+    } */
+    .b span:nth-child(3n + 1){
+      margin-left: 0px;
+    }
+    
+    .b span:nth-child(3n + 2){
+      margin-left: 210px;
+      margin-top: -55px;
+    }
+    .b span:nth-child(3n + 3){
+      margin-left: 420px;
+      margin-top: -55px;
+    }
+    span:hover {
+      background-color: red;
+    }
+    .c {
+      width: 600px;
+      margin: 0 auto;
+    }
+    .c a {
+      display: block;
+      width: 600px;
+      border-bottom: 1px solid ;
+      text-decoration: none;
+    }
+    .c a:last-child {
+      border: none;
+    }
+    footer {
+      background-color: pink;
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">hello world 请调整浏览器窗口大小查看效果</div>
+  
+  <p>页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px</p>
+  <div class="b">
+    <span>宽180高40(包含边框)</span>
+    <span>产品</span>
+    <span>产品</span>
+    <span>水平间隙30px</span>
+    <span>产品</span>
+    <span>产品</span>
+    <span>垂直间隙15px</span>
+    <span>产品</span>
+    <span>产品</span>
+    <span>边框宽度3px</span>
+    <span>产品</span>
+    <span>产品</span>
+  </div>
+  <div class="c">
+    <a href="#">link</a>
+    <a href="#">link</a>
+    <a href="#">link</a>
+    <a href="#">link</a>
+    <a href="#">link</a>
+    <a href="#">link</a>
+  </div>
+  <footer>
+    ©版权所有<br>
+    本页所有布局均使用块元素
+  </footer>
+  
+</body>
+</html>
