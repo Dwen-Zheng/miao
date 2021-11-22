@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta http-equiv="refresh" content="1"> -->
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      
+    }
+    body {
+      font-size: 0;
+      text-align: center;
+    }
+    .main > div {
+      border: 1px solid black;
+      padding-left: 5px;
+    }
+    li {
+      list-style: none;
+      background-color: gray;
+      border: 1px solid black;
+    }
+    header {
+      width: 900px;
+      position: relative;
+      
+    }
+    header>div {
+      width: 200px;
+      height: 30px;
+      background-color: #A09E9E;
+      display: inline-block;
+      font-size: 16px;
+      border: 1px solid black;
+    }
+    .ma li {
+      width: 50px;
+      height: 30px;
+      background-color: gray;
+    }
+    .ma .ma1 {
+      position: absolute;
+      top: 30px;
+      left: 225px;
+      display: none;
+    }
+    /* 一级菜单定位 */
+    .ma:hover .ma1 {
+      display: block;
+    }
+    /* 鼠标停留在洗衣机时，一级菜单出现 */
+    
+    .m11 {
+      display: none;
+    }
+    /* 第二个菜单不渲染 */
+    .m1:hover .m11 {
+      display: block;
+    }
+    /* 鼠标停留在洗衣机时，二级菜单出现 */
+    .m11 {
+      position: absolute;
+      top: 0;
+      left: 53px;
+    }
+    /* 二级子菜单定位 */
+  </style>
+</head>
+<body>
+  <div class="main">
+    <header>
+      <div class="ma">家电
+        <ul class="ma1">
+          <li class="m1">洗衣机
+            <ul class="m11">
+              <li>海尔</li>
+              <li>美的</li>
+              <li>奥克斯</li>
+              <li>小米</li>
+              <li>华为</li>
+              <li>苏宁</li>
+              <li>松下</li>
+            </ul>
+          </li>
+          <li>冰箱</li>
+          <li>空调</li>
+          <li>洗碗机</li>
+          <li>油烟机</li>
+        </ul>
+      </div>
+      <div class="mb">数码</div>
+      <div class="mc">其他配件</div>
+    </header>
+  </div>
+</body>
+</html>
