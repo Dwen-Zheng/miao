@@ -1,100 +1,122 @@
 <!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2021 by anonymous (http://jsbin.com/wiqulezeta/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <meta http-equiv="refresh" content="1"> -->
   <title>Document</title>
-  <style>
-    * {
-      margin: 0;
-      
-    }
-    body {
-      font-size: 0;
-      text-align: center;
-    }
-    .main > div {
-      border: 1px solid black;
-      padding-left: 5px;
-    }
-    li {
-      list-style: none;
-      background-color: gray;
-      border: 1px solid black;
-    }
-    header {
-      width: 900px;
-      position: relative;
-      
-    }
-    header>div {
-      width: 200px;
-      height: 30px;
-      background-color: #A09E9E;
-      display: inline-block;
-      font-size: 16px;
-      border: 1px solid black;
-    }
-    .ma li {
-      width: 50px;
-      height: 30px;
-      background-color: gray;
-    }
-    .ma .ma1 {
-      position: absolute;
-      top: 30px;
-      left: 225px;
-      display: none;
-    }
-    /* 一级菜单定位 */
-    .ma:hover .ma1 {
-      display: block;
-    }
-    /* 鼠标停留在洗衣机时，一级菜单出现 */
-    
-    .m11 {
-      display: none;
-    }
-    /* 第二个菜单不渲染 */
-    .m1:hover .m11 {
-      display: block;
-    }
-    /* 鼠标停留在洗衣机时，二级菜单出现 */
-    .m11 {
-      position: absolute;
-      top: 0;
-      left: 53px;
-    }
-    /* 二级子菜单定位 */
-  </style>
+<style id="jsbin-css">
+* {
+  background-color: rgba(0,0,0,0.08);
+  box-shadow: inset 0 0 1px red;
+}
+html {
+  zoom: 2;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+  white-space: nowrap;
+}
+ul ul {
+  left: 0;
+  top: 100%;
+}
+.main-menu li:hover {
+  background-color: gold;
+}
+.main-menu > li {
+  display: inline-block;
+  position: relative;
+}
+.main-menu li ul {
+  position: absolute;
+}
+.main-menu ul  {
+  display: none;
+}
+li:hover >ul {
+  display: block;
+}
+.main-menu ul  {
+  display: none;
+}
+.main-menu ul:hover ul  {
+  display: block;
+}
+ul ul ul {
+  top: 0;
+  left: 100%;
+}
+</style>
 </head>
 <body>
-  <div class="main">
-    <header>
-      <div class="ma">家电
-        <ul class="ma1">
-          <li class="m1">洗衣机
-            <ul class="m11">
-              <li>海尔</li>
-              <li>美的</li>
-              <li>奥克斯</li>
-              <li>小米</li>
-              <li>华为</li>
-              <li>苏宁</li>
-              <li>松下</li>
-            </ul>
-          </li>
-          <li>冰箱</li>
-          <li>空调</li>
-          <li>洗碗机</li>
-          <li>油烟机</li>
-        </ul>
-      </div>
-      <div class="mb">数码</div>
-      <div class="mc">其他配件</div>
-    </header>
-  </div>
+
+    <ul class="main-menu">
+      <li>一级菜单1
+      <ul>
+        <li>二级菜单1
+          <ul>
+            <li>三级菜单1</li>
+            <li>三级菜单2</li>
+            <li>三级菜单3</li>
+            <li>三级菜单4</li>
+          </ul>
+        </li>
+        <li>二级菜单2</li>
+        <li>二级菜单3</li>
+        <li>二级菜单4</li>
+      </ul>
+      </li>
+      <li>一级菜单2
+          <ul>
+        <li>二级菜单1
+          <ul>
+            <li>三级菜单1</li>
+            <li>三级菜单2</li>
+            <li>三级菜单3</li>
+            <li>三级菜单4</li>
+          </ul>
+        </li>
+        <li>二级菜单2</li>
+        <li>二级菜单3</li>
+        <li>二级菜单4</li>
+      </ul>
+      </li>
+      <li>一级菜单3</li>
+        <ul>
+        <li>二级菜单1
+          <ul>
+            <li>三级菜单1</li>
+            <li>三级菜单2</li>
+            <li>三级菜单3</li>
+            <li>三级菜单4</li>
+          </ul>
+        </li>
+        <li>二级菜单2</li>
+        <li>二级菜单3</li>
+        <li>二级菜单4</li>
+      </ul>
+    </ul>
+  
+<script id="jsbin-javascript">
+var money=1000;
+var count=0;
+while(money<5000){
+  money=money*1.05;
+  count++;
+}
+console.log("一共需要"+count+"年")
+</script>
 </body>
 </html>
