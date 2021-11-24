@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    div {
+      margin: 200px auto;
+      width: 100px;
+      height: 100px;
+      background-color: #fff;
+    }
+    label {
+      display: block;
+      width: 100px;
+      height: 100px;
+      margin: 30px 30px;
+      border: 1px solid transparent;
+      background-image: url(heart.jpg);
+      background-repeat: no-repeat;
+      background-position: -11px -7px;
+      
+    }
+    input:checked + label {
+      /* width: 200px;
+      height: 200px; */
+      background-position: -2800px -7px;
+      transition: all 5s steps(28);
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <!-- 将label和input关联起来，使点击input即可选中label -->
+    <input type="checkbox" id="heart" hidden>
+    <label for="heart"></label>
+    
+    
+    
+    
+  </div>
+</body>
+</html>
