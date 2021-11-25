@@ -1,0 +1,121 @@
+// 类名为table 的表格样式
+.table {
+  margin: 100px auto;
+  border-collapse: collapse;
+  width: 800px;
+  // border: 1px solid #DEE2E6;
+  text-align: left;
+  font-size: 20px;
+  
+  thead {
+    margin-left: 10px;
+    
+    tr {
+      border-bottom: 2px solid black;
+      th {
+        padding: 20px 0 5px 10px;
+        // thead第一列左边距
+        &:nth-child(1) {
+          padding-left: 10px;
+        }
+        
+      }
+    }
+  }
+  tbody tr {
+    border-bottom: 1px solid #DEE2E6;
+    th {
+      padding: 15px 15px 15px 0;
+      &:nth-child(1) {
+        // tobody第一列左边距
+        padding-left: 10px;
+      }
+    }
+    td {
+      padding-left: 10px;
+    }
+  }
+}
+// 类名为table-striped 的表格样式
+
+.table.table-striped tbody tr {
+  &:nth-child(1),
+  &:nth-child(3) {
+    background-color: #F2F2F2;
+    
+  }
+}
+// 类名为table-dark-striped  的表格样式
+.table.table-dark.table-striped {
+  background-color: black;
+  color: #fff;
+  thead tr {
+    border-bottom: 2px solid #fff;
+  }
+  tbody tr {
+    
+    &:nth-child(1),
+    &:nth-child(3) {
+      background-color: #2C3034;
+      // 第一第三行背景颜色变黑
+      
+    }
+  }
+}
+// table table-success.table-striped 的表格样式
+.table.table-success.table-striped {
+  background-color: #D1E7DD;
+  tbody tr:nth-child(1),
+  tbody tr:nth-child(3) {
+    background-color: #C7DBD2;
+  }
+}
+// table table-hover的表格样式
+.table.table-hover tbody tr:hover{
+  background-color: #ECECEC;
+}
+// table table-dark table-hover的表格样式
+
+.table.table-dark.table-hover {
+  background-color: #212529;
+  color: #fff;
+  thead tr {
+    border-bottom: 2px solid #fff;
+  }
+  tbody tr:hover{
+    background-color: #323539;
+  }
+}
+// table table-striped table-hover表格样式
+.table.table-striped.table-hover tr:hover {
+  background-color: #ECECEC;
+}
+
+// table-sm的表格样式
+.table.table-sm {
+  th, td {
+    padding: .25em;
+  }
+}
+// table table-bordered表格样式
+.table.table-bordered {
+  thead th {
+    border: 1px solid #DEE2E6;
+  }
+  tbody td {
+    border: 1px solid #DEE2E6;
+    
+  }
+}
+// table table-bordered border-primary表格样式
+.table.table-bordered.border-primary {
+  th, td{
+    border: 1px solid #0D6EFD;
+  }
+}
+// table-borderless表格样式
+.table.table-borderless {
+  thead, td, tr {
+    border: none;
+  }
+}
