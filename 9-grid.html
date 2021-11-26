@@ -12,7 +12,7 @@
     padding: 0;
     box-sizing: border-box;
   }
-  ul {
+  /* ul {
     margin: 100px auto;
     width: 150px;
     height: 150xp;
@@ -29,14 +29,38 @@
     margin-top: -2px;
     position: relative;
   }
-  /* 给选中的元素z-index提高 */
+  给选中的元素z-index提高
   ul li:hover {
     border: 2px solid red;
     cursor: pointer;
     z-index: 1;
-  }
+  } */
   
-  /* 解法二：表格 */
+  
+  /* 解法二：定位元素高于不定位元素 */
+  /* ul {
+    margin: 100px auto;
+    width: 150px;
+    height: 150xp;
+  }
+  ul li {
+    list-style: none;
+    float: left;
+    width: 50px;
+    height: 50px;
+    border: 2px solid blue;
+    text-align: center;
+    line-height: 50px;
+    margin-left: -2px;
+    margin-top: -2px;
+  }
+  ul li:hover {
+    position: relative;
+    border: 2px solid red;
+    cursor: pointer;
+  } */
+  
+  /* 解法三：表格 */
   table {
     border-collapse: collapse;
   }
