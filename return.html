@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @keyframes turn-div {
+      from {
+        transform: rotateZ(0deg);
+      }
+      to {
+        transform: rotateZ(360deg);
+      }
+    }
+    @keyframes turn-img {
+      from {
+        transform: rotateZ(0deg);
+      }
+      to {
+        transform: rotateZ(-360deg);
+      }
+    }
+    div {
+      position: relative;
+      margin: 100px auto;
+      width: 500px;
+      height: 500px;
+      border-radius: 9999px;
+      animation: turn-div 5s linear infinite;
+    }
+    section {
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      border-radius: 9999px;
+    }
+    /* div:hover {
+      transform: rotateZ(360deg);
+      transition: 5s;
+    }
+    div:hover img {
+      transform: rotateZ(-360deg);
+      transition: 5s  ;
+    } */
+    img {
+      width: 200px;
+      transform: rotatez(0);
+      position: absolute;
+      top: 0;
+      left: 0;
+      animation: turn-img 5s linear infinite;
+    }
+
+  </style>
+</head>
+<body>
+  <div>
+    <section></section>
+      <img src="https://lh3.googleusercontent.com/proxy/KzsvvOMW8HmYHkAlxr2OapSqbNd5bVNtx7Jx0Ce80gzEGTqHP_I-8-TxOp-Wqb8xbAm2OY35S1uAK5C4isEq9u1i4E0CVxnWsug2Zyu0ra7DP50yl5jcMA" alt="">
+  </div>
+</body>
+</html>

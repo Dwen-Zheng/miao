@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @keyframes play {
+      from {
+        transform: rotateX(0) rotateY(0);
+      }
+      to {
+        transform: rotateX(360deg) rotateY(360deg);
+      }
+    }
+    div {
+      transform-style: preserve-3d;
+      margin: 200px auto;
+      perspective: 800;
+      width: 200px;
+      height: 200px;
+      /* transform: rotateX(45deg);
+      transform: rotateY(45deg); */
+      animation: play 5s linear infinite;
+      transform-origin: center center center;
+    }
+    section {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%);
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+    .a2 {
+      background-color: blue;
+      transform: translateZ(-200px);
+      background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%);
+    }
+    .b1 {
+      background-color: red;
+      transform: translateX(-200px) rotateY(-90deg);
+      transform-origin: right  center;
+      background: linear-gradient(45deg, rgba(255, 0, 179, 0.8), rgba(0, 255, 170, 0) 70.71%);
+
+    }
+    .b2 {
+      background-color: pink;
+      transform: translateX(200px) rotateY(90deg);
+      transform-origin: left center;
+    }
+    .c1 {
+      background-color: aqua;
+      transform: translateY(-200px) rotateX(90deg);
+      transform-origin: center bottom;
+    }
+    .c2 {
+      background-color: greenyellow;
+      transform: rotateX(90deg);
+      transform-origin: center bottom;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div>
+    <!-- a1正面，b1左侧面，c1右侧面 -->
+    <section class="a1"></section>
+    <section class="a2"></section>
+    <section class="b1"></section>
+    <section class="b2"></section>
+    <section class="c1"></section>
+    <section class="c2"></section>
+  </div>
+</body>
+</html>

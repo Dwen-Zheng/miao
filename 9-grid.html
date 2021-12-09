@@ -35,8 +35,8 @@
     cursor: pointer;
     z-index: 1;
   } */
-  
-  
+
+
   /* 解法二：定位元素高于不定位元素 */
   /* ul {
     margin: 100px auto;
@@ -59,7 +59,7 @@
     border: 2px solid red;
     cursor: pointer;
   } */
-  
+
   /* 解法三：表格 */
   table {
     border-collapse: collapse;
@@ -67,11 +67,16 @@
   td {
     width: 50px;
     height: 50px;
-    border: 1px solid black ;
+    /* border: 1px solid black ; */
     text-align: center;
   }
-  td:hover {
-    border-color: red;
+
+  col,tr {
+    border: 1px solid black;
+  }
+ td:hover {
+    /* border-color: red; */
+    border: 1px solid red;
   }
 </style>
 <body>
@@ -86,8 +91,12 @@
     <li>8</li>
     <li>9</li>
   </ul> -->
+
   <table>
     <tbody>
+      <col>
+      <col>
+      <col>
       <tr>
         <td>1</td>
         <td>2</td>
