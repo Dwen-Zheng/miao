@@ -20,9 +20,8 @@
   padding: 0;
   box-sizing: border-box;
   font-size: 0;
-  // box-shadow: inset 0 0 1px pink;
-  // background-color: rgba(0,0,0,0.08);
-  xbox-shadow: inset 0 0 1px red;
+  // xbackground-color: rgba(0,0,0,0.08);
+  // xbox-shadow: inset 0 0 1px red;
 }
 body {
   overflow: scroll;
@@ -157,24 +156,26 @@ div.header-site {
             list-style: none;
             float: left;
             line-height: 100px;
-            margin: 0 10px;
-
-          }
+            margin: 0;
+            padding: 0 10px;
           // 每一个菜单被选中时，下拉菜单出现
+           &:hover a + .children-list{
+            // display: block;
+            visibility: visible;
+            height: 237px;
+            transition: 1s .3s;
+            z-index: 999999;
+          }
           a {
             font-size: 16px;
             text-decoration: none;
             color: #333361;
+            line-height: 100px;
             &:hover {
               color: red;
+              transition: 0s 0s;
             }
-            &:hover + .children-list{
-              // display: block;
-              // visibility: visible;
-              height: 237px;
-              transition: 1s;
-              z-index: 999999;
-            }
+           }
           }
         }
       }
@@ -689,17 +690,12 @@ div.header-site {
     margin: 40px auto ;
     height: 672px;
     transition: none;
+    h2 {
+      float: left;
+      font-size: 22px;
+      height: 58px;
+    }
     .height {
-      .height:hover {
-       // 父元素被选中的时候，子元素变为黑色
-      color: black;
-      transition: none;
-      ul {
-        // 父元素被选中的时候，子元素后代中的ul立马消失，但是被选中的子元素不会消失
-        visibility: hidden;
-        transition: none;
-      }
-      }
       span:nth-of-type(1) {
         color: orangered;
         ul {
@@ -715,11 +711,6 @@ div.header-site {
         visibility: hidden;
         transition: none;
       }
-      }
-      h2 {
-        float: left;
-        font-size: 22px;
-        height: 58px;
       }
       span {
         float: left;
@@ -849,6 +840,11 @@ div.header-site {
     height: 672px;
     margin: 40px auto ;
     transition: none;
+    h2 {
+      float: left;
+      font-size: 22px;
+      height: 58px;
+    }
     .height {
     span:nth-of-type(1) {
       color: orangered;
@@ -865,11 +861,6 @@ div.header-site {
         visibility: hidden;
         transition: none;
       }
-    }
-    h2 {
-      float: left;
-      font-size: 22px;
-      height: 58px;
     }
     span {
       float: left;
@@ -1028,6 +1019,11 @@ div.header-site {
     height: 672px;
     margin: 40px auto;
     transition: none;
+    h2 {
+      float: left;
+      font-size: 22px;
+      height: 58px;
+    }
     .height {
     span:nth-of-type(1) {
       color: orangered;
@@ -1045,11 +1041,7 @@ div.header-site {
         transition: none;
       }
     }
-    h2 {
-      float: left;
-      font-size: 22px;
-      height: 58px;
-    }
+
     span {
       float: left;
       font-size: 16px;
@@ -1224,6 +1216,11 @@ div.header-site {
     height: 672px;
     margin: 40px auto;
     transition: none;
+    h2 {
+      float: left;
+      font-size: 22px;
+      height: 58px;
+    }
     .height {
     span:nth-of-type(1) {
       color: orangered;
@@ -1241,11 +1238,7 @@ div.header-site {
         transition: none;
       }
     }
-    h2 {
-      float: left;
-      font-size: 22px;
-      height: 58px;
-    }
+
     span {
       float: left;
       font-size: 16px;
@@ -1408,6 +1401,11 @@ div.header-site {
     height: 672px;
     margin: 40px auto;
     transition: none;
+    h2 {
+      float: left;
+      font-size: 22px;
+      height: 58px;
+    }
    .height {
     span:nth-of-type(1) {
       color: orangered;
@@ -1424,11 +1422,6 @@ div.header-site {
         visibility: hidden;
         transition: none;
       }
-    }
-    h2 {
-      float: left;
-      font-size: 22px;
-      height: 58px;
     }
     span {
       float: left;
@@ -1593,6 +1586,11 @@ div.header-site {
     height: 672px;
     margin: 40px auto;
     transition: none;
+    h2 {
+      float: left;
+      font-size: 22px;
+      height: 58px;
+    }
     .height {
     span:nth-of-type(1) {
       color: orangered;
@@ -1609,11 +1607,6 @@ div.header-site {
         visibility: hidden;
         transition: none;
       }
-    }
-    h2 {
-      float: left;
-      font-size: 22px;
-      height: 58px;
     }
     span {
       float: left;
@@ -1793,6 +1786,11 @@ div.header-site {
     height: 672px;
     margin: 40px auto 80px;
     transition: none;
+    h2 {
+      float: left;
+      font-size: 22px;
+      height: 58px;
+    }
     .height {
     span:nth-of-type(1) {
       color: orangered;
@@ -1809,11 +1807,6 @@ div.header-site {
         visibility: hidden;
         transition: none;
       }
-    }
-    h2 {
-      float: left;
-      font-size: 22px;
-      height: 58px;
     }
     span {
       float: left;
@@ -2043,7 +2036,7 @@ div.header-site {
         display: block;
         position: relative;
         &:hover span {
-          color: orangered;
+          background-color: orangered;
           transition: .4s;
         }
         img {
@@ -2078,7 +2071,6 @@ div.header-site {
           color: #fff;
           transition: all .2s;
           overflow: hidden;
-
           i::after {
             font-family: 'Mifont';
             content: "\E601";
@@ -2260,7 +2252,7 @@ div.header-site {
     padding: 30px 0;
     background-color: #F5F5F5;
     font-size: 12px;
-    color: red;
+    color: #B0B0B0;
 
     .container {
       position: relative;

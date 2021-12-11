@@ -16,7 +16,6 @@
   padding: 0;
   box-sizing: border-box;
   font-size: 0;
-  xbox-shadow: inset 0 0 1px red;
 }
 body {
   overflow: scroll;
@@ -127,20 +126,24 @@ div.header-site .container .header-nav ul li {
   list-style: none;
   float: left;
   line-height: 100px;
-  margin: 0 10px;
+  margin: 0;
+  padding: 0 10px;
 }
-div.header-site .container .header-nav ul a {
+div.header-site .container .header-nav ul li:hover a + .children-list {
+  visibility: visible;
+  height: 237px;
+  transition: 1s 0.3s;
+  z-index: 999999;
+}
+div.header-site .container .header-nav ul li a {
   font-size: 16px;
   text-decoration: none;
   color: #333361;
+  line-height: 100px;
 }
-div.header-site .container .header-nav ul a:hover {
+div.header-site .container .header-nav ul li a:hover {
   color: red;
-}
-div.header-site .container .header-nav ul a:hover + .children-list {
-  height: 237px;
-  transition: 1s;
-  z-index: 999999;
+  transition: 0s 0s;
 }
 div.header-site .container .header-search {
   line-height: 100px;
@@ -605,13 +608,10 @@ div.children-list ul.children-first li a .price {
   height: 672px;
   transition: none;
 }
-.product .smart .height .height:hover {
-  color: black;
-  transition: none;
-}
-.product .smart .height .height:hover ul {
-  visibility: hidden;
-  transition: none;
+.product .smart h2 {
+  float: left;
+  font-size: 22px;
+  height: 58px;
 }
 .product .smart .height span:nth-of-type(1) {
   color: orangered;
@@ -626,11 +626,6 @@ div.children-list ul.children-first li a .price {
 .product .smart .height:hover span ul {
   visibility: hidden;
   transition: none;
-}
-.product .smart .height h2 {
-  float: left;
-  font-size: 22px;
-  height: 58px;
 }
 .product .smart .height span {
   float: left;
@@ -754,6 +749,11 @@ div.children-list ul.children-first li a .price {
   margin: 40px auto ;
   transition: none;
 }
+.product .home-appliance h2 {
+  float: left;
+  font-size: 22px;
+  height: 58px;
+}
 .product .home-appliance .height span:nth-of-type(1) {
   color: orangered;
 }
@@ -767,11 +767,6 @@ div.children-list ul.children-first li a .price {
 .product .home-appliance .height:hover span ul {
   visibility: hidden;
   transition: none;
-}
-.product .home-appliance .height h2 {
-  float: left;
-  font-size: 22px;
-  height: 58px;
 }
 .product .home-appliance .height span {
   float: left;
@@ -924,6 +919,11 @@ div.children-list ul.children-first li a .price {
   margin: 40px auto;
   transition: none;
 }
+.product .live-appliance h2 {
+  float: left;
+  font-size: 22px;
+  height: 58px;
+}
 .product .live-appliance .height span:nth-of-type(1) {
   color: orangered;
 }
@@ -937,11 +937,6 @@ div.children-list ul.children-first li a .price {
 .product .live-appliance .height:hover span ul {
   visibility: hidden;
   transition: none;
-}
-.product .live-appliance .height h2 {
-  float: left;
-  font-size: 22px;
-  height: 58px;
 }
 .product .live-appliance .height span {
   float: left;
@@ -1107,6 +1102,11 @@ div.children-list ul.children-first li a .price {
   margin: 40px auto;
   transition: none;
 }
+.product .kitchen-appliance h2 {
+  float: left;
+  font-size: 22px;
+  height: 58px;
+}
 .product .kitchen-appliance .height span:nth-of-type(1) {
   color: orangered;
 }
@@ -1120,11 +1120,6 @@ div.children-list ul.children-first li a .price {
 .product .kitchen-appliance .height:hover span ul {
   visibility: hidden;
   transition: none;
-}
-.product .kitchen-appliance .height h2 {
-  float: left;
-  font-size: 22px;
-  height: 58px;
 }
 .product .kitchen-appliance .height span {
   float: left;
@@ -1282,6 +1277,11 @@ div.children-list ul.children-first li a .price {
   margin: 40px auto;
   transition: none;
 }
+.product .smart-home h2 {
+  float: left;
+  font-size: 22px;
+  height: 58px;
+}
 .product .smart-home .height span:nth-of-type(1) {
   color: orangered;
 }
@@ -1295,11 +1295,6 @@ div.children-list ul.children-first li a .price {
 .product .smart-home .height:hover span ul {
   visibility: hidden;
   transition: none;
-}
-.product .smart-home .height h2 {
-  float: left;
-  font-size: 22px;
-  height: 58px;
 }
 .product .smart-home .height span {
   float: left;
@@ -1457,6 +1452,11 @@ div.children-list ul.children-first li a .price {
   margin: 40px auto;
   transition: none;
 }
+.product .sport h2 {
+  float: left;
+  font-size: 22px;
+  height: 58px;
+}
 .product .sport .height span:nth-of-type(1) {
   color: orangered;
 }
@@ -1470,11 +1470,6 @@ div.children-list ul.children-first li a .price {
 .product .sport .height:hover span ul {
   visibility: hidden;
   transition: none;
-}
-.product .sport .height h2 {
-  float: left;
-  font-size: 22px;
-  height: 58px;
 }
 .product .sport .height span {
   float: left;
@@ -1646,6 +1641,11 @@ div.children-list ul.children-first li a .price {
   margin: 40px auto 80px;
   transition: none;
 }
+.product .daily h2 {
+  float: left;
+  font-size: 22px;
+  height: 58px;
+}
 .product .daily .height span:nth-of-type(1) {
   color: orangered;
 }
@@ -1659,11 +1659,6 @@ div.children-list ul.children-first li a .price {
 .product .daily .height:hover span ul {
   visibility: hidden;
   transition: none;
-}
-.product .daily .height h2 {
-  float: left;
-  font-size: 22px;
-  height: 58px;
 }
 .product .daily .height span {
   float: left;
@@ -1881,7 +1876,7 @@ div.children-list ul.children-first li a .price {
   position: relative;
 }
 .video ul li a:hover span {
-  color: orangered;
+  background-color: orangered;
   transition: 0.4s;
 }
 .video ul li a img {
@@ -2089,7 +2084,7 @@ div.children-list ul.children-first li a .price {
   padding: 30px 0;
   background-color: #F5F5F5;
   font-size: 12px;
-  color: red;
+  color: #B0B0B0;
 }
 .footer .footer-info .container {
   position: relative;
