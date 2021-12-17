@@ -919,6 +919,89 @@
 </script>
 
 
+<script type="xxx" id="ch0105/31">
+
+</script>
+
+<script type="xxx" id="ch0105/32">
+  var n = Number(prompt('n'))
+  var sum = 0
+  var p = 1
+  var q = 1
+  for (i = 0; i < n; i++) {
+    q = q + p
+    p = q - p
+    sum = sum + q / p
+  }
+  console.log(sum.toFixed(4));
+</script>
+
+<script type="xxx" id="ch0105/33">
+  var n = Number(prompt('n'))
+  var p
+  var q = 0
+  var float = 0
+  var sum = 0
+  for (var i = 0; i < n ; i++) {
+    p = Math.pow(-1,i)
+    q++
+    float = p / q
+    sum = sum + float
+  }
+  console.log(sum);
+</script>
+
+<script type="xxx" id="ch0105/34">
+  var n = Number(prompt('n'))
+  var sum = 0
+  var factorial =  1
+  for (var i = 1; i <= n; i++) {
+    factorial = i * factorial //当次阶乘结果
+    sum = sum + factorial  // 前i次阶乘求和
+  }
+  console.log(sum);
+</script>
+
+<script type="xxx" id="ch0105/35">
+   var n = Number(prompt('n'))
+  var sum = 1
+  var factorial =  1
+  for (var i = 1; i <= n; i++) {
+    factorial = i * factorial //当次阶乘结果
+    sum = sum + 1 /factorial  // 前i次阶乘倒数求和
+  }
+  console.log(sum.toFixed(10));
+</script>
+
+<script type="xxx" id="ch0105/36">
+  var x = Number(prompt('x'))
+   var n = Number(prompt('n'))
+   var sum = 0
+   var power
+   for (var i = 0; i <= n; i++) {
+    power = Math.pow(x,i) // 当次结果
+    sum = sum + power  // i次求和
+   }
+   console.log(sum.toFixed(2));
+</script>
+
 <script>
+    var M = Number(prompt('M'))
+    var N = Number(prompt('N'))
+    var X = Number(prompt('X'))
+    var bodyPower = 0
+    var n = N
+    for (; X !== 0;) {
+      if (bodyPower == M ) {
+        for(i = 1; i <= M; i++) {
+          n = n + 1 / n //每天的战斗力增加点数
+          bodyPower = bodyPower - 1 // 每天体力减少1点
+        }
+      } else {
+            bodyPower = bodyPower + Math.ceil((M - bodyPower) / n) //补充满体力需要的能量元素数量
+            X = X - Math.ceil((M - bodyPower) / n) //能量元素剩余数量
+      }
+    }
+    console.log(n.toFixed(0));
 
 </script>
