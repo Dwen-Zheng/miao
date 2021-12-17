@@ -517,7 +517,7 @@
 <script type="xxx" id="ch0105/06">
   var n = Number(prompt("n"))
   var max = 0
-  var min = 0
+  var min = 1000
   for(i = 1; i <= n; i++ ) {
     var a = Number(prompt('a'))
     var max = Math.max(max,a)
@@ -654,7 +654,6 @@
   var K = Number(prompt("K"))
   var price = 200
   var sum = 50
-  // debugger
   for (i = 1; i < 21 ; i++) {
     var sum = sum + N
     var price = price * (1 + K / 100)
@@ -663,9 +662,9 @@
       if(sum >= price) {
         console.log(M)
         break
-      } else {
-        console.log("impossible");
       }
+    } else {
+      console.log("impossible");
     }
   }
 </script>
@@ -679,7 +678,7 @@
   if(k <= 2) {
     console.log(1);
   } else {
-    for(i = 0; i < k - 2; i++) {
+    for(i = 1; i < k - 2; i++) {
       a = b
       b = c
       c = a + b
@@ -739,7 +738,7 @@
 <script type="xxx" id="ch0105/21">
   var a = Number(prompt("a"))
   if(a == 1) {//等于1
-    console.log('end');
+    console.log('End');
   } else{//不等于1
     for(i =0; a !== 1; i++) {
       if(a % 2 == 0) {//偶数
@@ -750,7 +749,7 @@
         console.log((a - 1) / 3 + "*3+1=" + a);
     }
     }
-    console.log('end');
+    console.log('End');
   }
 </script>
 
@@ -823,9 +822,10 @@
       var b2 = (b - b1 * 100 - b % 10) / 10
       var b3 = b % 10
       if (a1 == b3 && a2 == b2 && a3 == b1) {
+        console.log(num);
         console.log(b);
         console.log(a);
-        console.log(num);
+
       }
     }
   }
@@ -869,7 +869,7 @@
   }
 </script>
 
-<script>
+<script type="xxx" id="ch0105/29">
   var n = Number(prompt('n'))
   var result = 0
   var a = 0
@@ -891,4 +891,34 @@
   } else {
     console.log(0);
   }
+</script>
+
+
+<script type="xxx" id="ch0105/30">
+  var m = Number(prompt('m'))
+  var k = Number(prompt('k'))
+  var counter = 0
+  var num = 0
+  if (m % 19 == 0) {
+    for (i = 0; m !== 0 ; i++) {
+      num = m % 10
+      if(num == k) {
+        counter = counter + 1
+      }
+      m = Math.trunc(m / 10)
+    }
+    if (counter == k) {
+      console.log("YES");
+    } else {
+      console.log("NO");
+    }
+  } else {
+    console.log("NO");
+  }
+
+</script>
+
+
+<script>
+
 </script>
