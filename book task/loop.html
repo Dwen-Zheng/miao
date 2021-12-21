@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script type="xxx">
+    var z= ''
+    var Symbol = String(prompt('#'))
+    for (var i =1; i<=7; i++) {
+      z = ''
+      for (var j = 1; j <= i ; j++) {
+        z = z + Symbol
+      }
+      console.log(z)
+    }
+  </script>
+  <script type="xxx">
+    for (var i = 1; i <= 100; i++) {
+      if (i % 3 == 0) {
+        console.log("Fizz");
+      }
+      if (i % 5 == 0) {
+        console.log("Buzz");
+      }
+      if (i % 3 !== 0  && i % 5 !== 0) {
+        console.log(i);
+      }
+    }
+  </script>
+  <script>
+    // debugger
+    var m = Number(prompt('m'))
+    var n = Number(prompt('n'))
+    var symbol = String(prompt('symbol'))
+    var z = ''
+    for (var i = 1; i <= m; i++) {
+      if (i % 2 !== 0) {
+      for (var j = 1; j <= n; j = j + 2) {
+          z = z + symbol + ' '
+      }
+      } else {
+        for (var j = 1; j <= n; j = j + 2) {
+          z =  z +' ' + symbol
+        }
+      }
+      z = z + '\n'
+    }
+    console.log(z);
+  </script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>画图</title>
+  <style>
+    canvas {
+      border: 2px solid #f0f;
+      display: block;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <canvas width="500" height="400"></canvas>
+</body>
+<script>
+  var canvas = document.querySelector('canvas')
+  canvas.style.imageRendering = 'pixelated' //放大时的插帧方式：不插帧，直接放大像素
+  var ctx = canvas.getContext('2d')
+
+  function dot(x, y, color = 'black') {
+    x = Math.round(x)
+    y = Math.round(y)
+    ctx.fillStyle = color
+    ctx.fillRect(x, y, 1, 1)
+  }
+  /**
+   * YOUR TASK
+      * 在 坐标 (42, 42) 画出一个点
+      * 画一条实线
+      * 画一条一个实点一个空点的虚线
+      * 画一条两个实点两个空点的虚线
+      * 画一条三个实点两个空点的虚线
+      * 画一条45度的斜线
+      * 画一条30度的斜线（与x轴或y轴的夹角呈30度）
+      * 画一条跨越画布左上角和右下角的对角线
+      * 画一个空心矩形
+      * 画一个实心矩形
+      * 画两个个空心的圆，居中：
+        * 一个半径为50像素
+        * 一个半径为200像素
+      * 画一个实心的圆，半径至少为100像素
+      * 画一个【大小合适】的sin(x)的图像
+
+      * 画出rgb色彩空间的某一面（尺寸要大于100x100）
+        如果做出上一题后，尝试将其每个点的坐标乘以一个矩阵（如(2,0,0,2)或(1,0.27得到新的位置，即绘制出被线性变幻后的色彩空间某一面
+        可以考虑如下几种矩阵：
+           2 0
+           0 2
+           ------
+           1  0.27
+           0  1
+           ------
+           0.5    0.87
+           -0.87  0.5
+
+   */
+</script>
+<script>
+  // 不可更改上面的代码
+  // 你的代码写在这里
+  // YOUR CODE GOES BELOW
+  var symbol = ''
+  // 1、
+  dot(42,42)
+  // 2、
+  for (var i = 0; i < 100; i++) {
+    console.log(dot(i,5));
+  }
+  // 3、
+  for (var i = 0; i < 100; i++) {
+    if (i % 2 == 0) {
+    console.log(dot(i,10));
+  } else {
+    console.log('');
+  }
+ }
+//  4、
+for (var i = 0; i < 100; i++) {
+    console.log(dot(i,5));
+  }
+  // 3、
+  for (var i = 0; i < 100; i = i + 4) {
+    symbol = dot(i,20) + dot(i + 1,20) + '' + ''
+    console.log(symbol);
+ }
+//  4、
+for (var i = 0; i < 100; i = i + 5) {
+    symbol = dot(i,30) + dot(i + 1,30) + dot(i + 2,30) + '' + ''
+    console.log(symbol);
+ }
+//  5、
+for (var i = 0; i <= 500; i++) {
+  symbol = dot(i,i)
+  console.log(symbol);
+  }
+// 6、画一条30度的斜线（与x轴或y轴的夹角呈30度）
+for (var i = 0; i <= 500; i++) {
+  symbol = dot(i,(800 - i) * 0.5)
+  console.log(symbol);
+  }
+  // 7、画一条跨越画布左上角和右下角的对角线
+  for (var i = 0; i <= 500; i++) {
+  symbol = dot(i, i * 0.8, 'red')
+  console.log(symbol);
+  }
+  // 8、画一个空心矩形
+for (var i =50; i <= 100; i++) {
+  for (var j = 20; j <= 60; j++) {
+    if (i == 50 || i == 100 || j == 20 || j == 60) {
+      symbol = symbol + dot(i,j)
+    }
+  }
+}
+console.log(symbol)
+// 9、画一个实心矩形
+for (var i =100; i <= 150; i++) {
+  for (var j = 80; j <= 120; j++) {
+      symbol = symbol + dot(i,j)
+  }
+}
+console.log(symbol)
+/* 10、画两个个空心的圆，居中：
+        * 一个半径为50像素
+         * 一个半径为200像素  */
+for (var i = 200; i <= 300; i++) {
+  for(var j = 150; j <= 250; j++) {
+    var l = Math.sqrt((i - 250) * (i - 250) + (j - 200) * (j - 200))
+    if (l == 50) {
+      symbol = symbol + dot(i,j,'orangered')
+    }
+  }
+}
+for (var i = 50; i <= 450; i++) {
+  for(var j = 0; j <= 400; j++) {
+    var l = Math.sqrt((i - 250) * (i - 250) + (j - 200) * (j - 200))
+    if (l == 200) {
+      symbol = symbol + dot(i,j,'orangered')
+    }
+  }
+}
+console.log(symbol);
+// 11、画一个实心的圆，半径至少为100像素
+for (var i = 150; i <= 350; i++) {
+  for(var j = 100; j <= 300; j++) {
+    var l = Math.sqrt((i - 250) * (i - 250) + (j - 200) * (j - 200))
+    if (l <= 100) {
+      symbol = symbol + dot(i,j,'pink')
+    }
+  }
+}
+console.log(symbol)
+// 12、画一个【大小合适】的sin(x)的图像
+// 13、画出rgb色彩空间的某一面（尺寸要大于100x100）
+for (var i = 400; i<=500; i++) {
+  for ( var j = 300; j <= 400; j++) {
+    dot(i,j,'rgb(i, i , 0)')
+  }
+}
+</script>
+</html>

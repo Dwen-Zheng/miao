@@ -15,7 +15,7 @@
   var a = Number(prompt("a"))
   var b = Number(prompt("b"))
   var c = Number(prompt("c"))
-  console.log((a + b) / c)
+  console.log(parseInt((a + b) / c))
 </script>
 
 <script type="xxx" id="ch0103/04">
@@ -84,7 +84,7 @@
   var a = Number(prompt("a"))
   var b = Number(prompt("b"))
   var c = a % b
-  console.log(c)
+  console.log(c.toFIxed(4))
 </script>
 
 <script type="xxx" id="ch0103/12">
@@ -99,7 +99,9 @@
   var b = a % 10
   var c = parseInt(( a - 100 ) / 10 )
   var d = parseInt(a / 100)
-  console.log(b , c , d)
+  console.log(b)
+  console.log(c)
+  console.log(d)
 </script>
 
 <script type="xxx" id="ch0103/14">
@@ -190,10 +192,10 @@
 <script type="xxx" id="ch0104/03">
   var a = Number(prompt("a"))
   if(a / 2 == 0) {
-    console.log("add");
+    console.log("even");
   }
   else {
-    console.log("even");
+    console.log("odd");
   }
 </script>
 
@@ -329,16 +331,17 @@
 
 <script type="xxx" id="ch0104/13">
   var n = Number(prompt("n"))
+  var y
   if(n < 5 && n >= 0) {
-    var y = n + 2.5
+     y = -n + 2.5
     console.log(y.toFixed(3));
   }
   else if (n < 10 && n >= 5){
-    var y = 2 - 1.5 * (n - 3)
+     y = 2 - 1.5 * (n - 3) * (n - 3)
     console.log(y.toFixed(3));
   }
   else {
-    var y = n / 2 - 1.5
+     y = n / 2 - 1.5
     console.log(y.toFixed(3));
   }
 </script>
@@ -369,9 +372,9 @@
   var b = Number(prompt("b"))
   var c = Number(prompt("c"))
   if(Math.abs(a + b ) > c && Math.abs(a - b ) < c && Math.abs(a + c ) > b && Math.abs(a - c ) < b && Math.abs(a - b ) < c && Math.abs(b + c ) > a && Math.abs(b - c ) < a) {
-    console.log("YES")
+    console.log("yes")
   } else {
-    console.log("NO");
+    console.log("no");
     }
 </script>
 
@@ -384,9 +387,9 @@
       console.log("NO");
     }
   } else if(a % 4 == 0) {
-    console.log("YES");
+    console.log("Y");
   } else {
-    console.log("NO");
+    console.log("N");
   }
 </script>
 
@@ -394,9 +397,9 @@
   var x = Number(prompt("x"))
   var y = Number(prompt("y"))
   if(x >= -1 && x <= 1 && y >= -1 && y <= 1) {
-    console.log("YES");
+    console.log("yes");
   } else {
-    console.log("NO");
+    console.log("no");
   }
 </script>
 
@@ -731,8 +734,8 @@
     height = height / 2
   }
   distance = distance - h
-  console.log(distance);
-  console.log(height);
+  console.log(distance.toFIxed(4));
+  console.log(height.toFixed(7));
 </script>
 
 <script type="xxx" id="ch0105/21">
@@ -920,6 +923,28 @@
 
 
 <script type="xxx" id="ch0105/31">
+var n = Number(prompt("n"))
+var m = Number(prompt("m"))
+var light = true
+var result = ''
+var isFirstLight = true
+for (var i = 1; i <= n; i++) {
+  light = true
+  for(var j = 1; j <= m && j <= i; j++) {
+    if (i % j == 0) {
+      light = !light
+    }
+  }
+  if (!light) {
+    if (isFirstLight) {
+    result += i
+    isFirstLight = false
+    } else {
+    result +=  ',' + i
+    }
+  }
+}
+console.log(result);
 
 </script>
 
@@ -1007,8 +1032,25 @@
 </script>
 
 
-<script type="xxx" id="ch0105/38">
+<script type="xxx"  id="ch0105/38">
+var group = Number(prompt('group')) // how many group
+for (var j = 1; j <= group; j++) {
+var f = ''
+var n = Number(prompt('n')) // 最高次幂
+  if(n == 0) {
+    var c = Number(prompt('c')) // 最高次幂为0的时候
+    console.log(0);
+  } else {
+    for ( var i = n; i >= 0; i--) {
+      var c = Number(prompt('c'))
+      if (i !== 0 ) {   // 最后一位为0的haul则0不输出，所以筛选出不为0的情况
+        f += i * c + ' '
+      }
+  }
+}
 
+  console.log(f);
+}
 </script>
 
 <script type="xxx" id="ch0105/39">
@@ -1064,8 +1106,7 @@
 </script>
 
 
-<script  id="ch0105/42">
-
+<script type="xxx"  id="ch0105/42">
    var row = Number(prompt('row')) //行
    var col = Number(prompt('col')) // 列
    var symbol = String(prompt('symbol'))
@@ -1087,7 +1128,9 @@
             z = z + ' '
           }
         }
+      if (i < row ) {
         z = z + '\n'
+      }
       }
 }
 console.log(z);
@@ -1140,4 +1183,185 @@ console.log(z);
     }
   }
   console.log(sum);
+</script>
+
+
+<!-- 水仙花题目 -->
+<script type="xxx" id="narcissistic">
+ var m = Number(prompt('m'))
+ var sum = 0
+ var n = 1 // 输入数字为几位数计数
+ var countm = m, summ = m
+ while (countm >= 10) { // 判断几位数
+   n++
+   countm = countm / 10
+ }
+ for (var i = 0 ; summ > 0; i++) {
+   var x = summ % 10  // 个位数的数字
+   var x2 = 1 //每个位数的n次方值
+   for (var j = 1; j <= n; j++) {
+    x2 = x2 * x
+   }
+   sum += x2  //每位数n次方求和
+   summ = (summ - x) / 10 // 向前移一位数
+ }
+ if (sum == m) {
+   console.log('YES');
+ } else {
+   console.log('NO');
+ }
+
+</script>
+
+
+<script type="xxx"  id="narcissistics">
+for (var m =0; m <= 10000; m++) {
+ var sum = 0
+ var n = 1 // 输入数字为几位数计数
+ var countm = m, summ = m
+ while (countm >= 10) { // 判断几位数
+   n++
+   countm = countm / 10
+ }
+ for (var i = 0 ; summ > 0; i++) {
+   var x = summ % 10  // 个位数的数字
+   var x2 = 1 //每个位数的n次方值
+   for (var j = 1; j <= n; j++) {
+    x2 = x2 * x
+   }
+   sum += x2  //每位数n次方求和
+   summ = (summ - x) / 10 // 向前移一位数
+ }
+ if (sum == m) {
+   console.log(m);
+ }
+}
+</script>
+
+
+<script type="xxx" id="palindrom">
+var m = Number(prompt('m'))
+var number = ''
+var m1 = m   //m1赋值为m
+for (var i=1; m1 > 0; i++) {
+  n = m1 % 10  // 取余数
+  number += n  // 倒序输出
+  m1 = (m1 - n) / 10 //向前移动一位数
+}
+number = Number(number)
+if (number == m) { // 如果顺序和倒序相等则是回文数
+  console.log('YES');
+} else {
+  console.log('NO');
+}
+</script>
+
+
+<script id="weekday">
+
+</script>
+
+<script type="xxx" id="complete-number"> //能整除的数相加
+  var m = Number(prompt('m'))
+  var sum = 0
+  for (var i = 1; i < m; i++) {  // 从1到n-1之间能被m整除的数求和
+    var n = m % i
+    if (n == 0) {
+      sum += i
+    }
+  }
+  if (sum == m) {
+       console.log('YES');
+  } else {
+      console.log('NO');
+  }
+</script>
+
+<script type="xxx" id="complete-numbers">
+  var sum = 0
+  for (var j = 0; j <= 10000; j++) {
+    for (var i = 1; i < j; i++) {  // 从1到n-1之间能被m整除的数求和
+    var n = j % i
+    if (n == 0) {
+      sum += i
+    }
+    }
+    if (sum == j) {
+        console.log(j)
+    }
+    sum = 0   //需要判断的数的和重新求和
+  }
+</script>
+
+
+<script type="xxx" id="prime" >
+  var m = Number(prompt('m'))
+  var count = 0
+  for (var i = 2; i < m; i++) {
+    var n = m % i
+    if (n == 0) {
+      console.log('NO');
+      break
+    }
+    count++
+    if (count == m - 2 ) {
+      console.log('YES');
+    }
+  }
+
+</script>
+
+<script type="xxx" id="primes">
+for (var m = 1; m <= 100; m++) {
+  var count = 0
+  for (var i = 2; i < m; i++) {
+    var n = m % i
+    if (n == 0) {
+      continue
+    }
+    count++
+  }
+  if (count == m - 2) {
+      console.log(m);
+    }
+}
+</script>
+
+<script type="xxx" id="itoa">
+  var m = Number(prompt('lcf'))
+  var n = Number(prompt('lcm'))
+  var max = 0
+  var min
+for (var i = 1; i <= m; i++) {
+  var p = m % i
+  if (p == 0) {
+    for (var j = 1; j <= n; j++) {
+      var q = n % j
+      if (q  == 0) {
+        if (i == j) {
+          max = Math.max(max,i)
+        }
+      }
+    }
+  }
+}
+min = m * n / max
+console.log(max);
+console.log(min);
+c
+</script>
+
+
+<script>
+  var m = Number(prompt('m'))
+  var x = 1
+  for(i = 1;  ;i++) {
+    var x2 = x
+    x = (x + m / x ) / 2
+    if (x- x2 < 0.0001) {
+      console.log(x.toFixed(3));
+      break
+    }
+  }
+
 </script>
