@@ -16,7 +16,9 @@ var  dwen_zheng = {
   },
 
   compact: function(array) {
+    for (let i = 0; i < array.length; i++) {
 
+    }
 
   }
 
