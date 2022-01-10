@@ -7,9 +7,10 @@ var  dwen_zheng = {
       temp.push(array[i])
       if (temp.length == size) {
         result.push(temp)
+        temp = []
       }
-      temp = []
     }
+    result.push(temp)
     return result
   }
 
