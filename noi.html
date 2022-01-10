@@ -1214,6 +1214,50 @@ console.log(z);
 </script>
 
 
+<script>
+  function digitWidth(n) {
+    let width = 0
+    let m
+    if (n == 0) {
+      return 1
+    }
+    while (n > 0) {
+      m = n % 10
+      width++
+      n = (n -m) / 10
+    }
+    return width
+  }
+</script>
+<!-- 函数水仙花 -->
+<script type="xxx">
+  for (var j = 1;j <= 1000; j++) {
+    if(isNarcissistic(j)) {
+      console.log(j);
+    }
+  }
+  function isNarcissistic(m) {
+    var m
+    var sum = 0
+    var n = 1 // 输入数字为几位数计数
+    var countm = m, summ = m
+    while (countm >= 10) { // 判断几位数
+      n++
+      countm = countm / 10
+    }
+    for (var i = 0 ; summ > 0; i++) {
+      var x = summ % 10  // 个位数的数字
+      var x2 = 1 //每个位数的n次方值
+      for (var j = 1; j <= n; j++) {
+        x2 = x2 * x
+      }
+      sum += x2  //每位数n次方求和
+      summ = (summ - x) / 10 // 向前移一位数
+    }
+    return sum == m
+  }
+</script>
+
 <script type="xxx"  id="narcissistics">
 for (var m =0; m <= 1000; m++) {
  var sum = 0
@@ -1256,9 +1300,49 @@ if (number == m) { // 如果顺序和倒序相等则是回文数
 }
 </script>
 
+<!-- weekday: 输入年份与月份，输出这个月的第一天是周几（视具体设定，周一可以用1或0表示） -->
 
 <script id="weekday">
+  function isLeapYear(n) {
+    if(n % 400 == 0 ) {
+      return ture
+    }
+    if (n % 4 == 0) {
+      return true
+    }
+    return false
+  }
+  //某年某月天数
+ function getMonthDay(year,month) {
+   switch(month) {
+     case 1:
+   case 3:
+   case 5:
+   case 7:
+   case 8:
+   case 10:
+   case 12:
+     return 31
+     case 2:
+       if(isLeapYear(year)) {
+         return 29
+       } else {
+         return 28
+       }
+       default:
+         return 30
+   }
 
+ }
+function weekday(year,month) {
+  var y = year -1
+  var day = y * 365 + Math.floor(y / 4) - Math.floor(y / 100) + Math.floor(y / 400)  //截止到前一年的天数，加上的为闰年的天数
+  //当年目标月之前天数
+  for (var i = 1; i < month; i++) {
+    day += getMonthDay(year,i)
+  }
+  return (day + 1) % 7  //每个星期7天。取余数
+}
 </script>
 
 <script type="xxx" id="complete-number"> //能整除的数相加
@@ -1284,18 +1368,13 @@ if (number == m) { // 如果顺序和倒序相等则是回文数
     }
   }
   function completeNumber(m) {
-    var sum = 0
-    for (var i = 1; i < m; i++) {
-      var n = m % i
-      if (n == 0) {
+    var sum = 1
+    for (var i = 2; i < m; i++) {
+      if (m % i== 0) {
         sum += i
       }
     }
-    if (sum == m && m !== 0) {
-      return true
-    } else {
-      return false
-    }
+    return sum == m
   }
 </script>
 <script type="xxx" id="complete-numbers">
@@ -1369,7 +1448,48 @@ for (var m = 1; m <= 100; m++) {
 }
 </script>
 
-<script id="itoa">
+<script type="xxx" id="itoa">
+function digitToChar(n) {
+  if (n == 0) {
+    return '0'
+  }
+  if (n == 1) {
+    return '1'
+  }
+  if (n == 2) {
+    return '2'
+  }
+  if (n == 3) {
+    return '3'
+  }
+  if (n == 4) {
+    return '4'
+  }
+  if (n == 5) {
+    return '5'
+  }
+  if (n == 6) {
+    return '6'
+  }
+  if (n == 7) {
+    return '7'
+  }
+  if (n == 8) {
+    return '8'
+  }
+  if (n == 9) {
+    return '9'
+  }
+
+}//将数字转换为字符串
+var m = Number(prompt('m'))
+var number = ''
+while (m > 0) {
+  digit = m % 10
+  number = number + digitToChar(digit)
+  m = (m - digit) / 10
+}
+console.log(number);
 
 </script>
 <script type="xxx" id="lcf&lcm">
@@ -1393,20 +1513,57 @@ for (var i = 1; i <= m; i++) {
 min = m * n / max
 console.log(max);
 console.log(min);
-c
 </script>
 
-
-<script type="xxx" id="sqrt">
-  var m = Number(prompt('m'))
-  var x = 1
-  for(i = 1;  ;i++) {
-    var x2 = x
-    x = (x + m / x ) / 2
-    if (x- x2 < 0.0001) {
-      console.log(x.toFixed(3));
-      break
+<script type="xxx" id="lcf&lcm">
+  function icf(m,n) {
+    let max = Math.max(m,n)
+    let min = Math.min(m,n)
+    let  余数 =  max % min
+    while (余数 != 0) {
+       max = min
+       min = 余数
+       余数 = max % min
     }
+    return min //最大公约数
+  } // 最大公约数
+  function icm(m,n) {
+    return m * n / icf(m,n)
+  } // 最小公倍数
+  var m = Number(prompt('m'))
+  var n = Number(prompt('n'))
+  console.log(icf(m,n))
+  console.log(icm(m,n));
+</script>
+<!-- sqrt: 输入一个数，求它的平方根，精确到小数点后3位，不能使用Math.sqrt -->
+<!-- 1、牛顿法求平方根 -->
+<script  id="sqrt">
+  var m = Number(prompt('m'))
+  function sqrt(n) {
+    var x = n
+    while (x * x - n > 0.0000001) {
+      x = (x + n / x) / 2
+    }
+    return x
   }
-
+  console.log(sqrt(m))
+</script>
+<!-- 2、二分法求平方根 -->
+<script type="xxx">
+  function sqrt(n) {
+    let left = 0
+    let right = n
+    let md = 0
+    do {
+       md = (left + right) / 2
+      if (md * md > n) {
+        right = md
+      } else if (md * md < n) {
+        left = md
+      } else {
+        return md
+      }
+    } while (Math.abs(md * md - n) > 0.0000001 )
+      return md
+  }
 </script>

@@ -124,7 +124,7 @@ console.log(symbol)
 /* 10、画两个个空心的圆，居中：
         * 一个半径为50像素
          * 一个半径为200像素  */
-for (var i = 200; i <= 300; i++) {
+for (var i = 200; i <= 300; i += 0.001) {
   for(var j = 150; j <= 250; j++) {
     var l = Math.sqrt((i - 250) * (i - 250) + (j - 200) * (j - 200))
     if (l == 50) {
@@ -142,21 +142,69 @@ for (var i = 50; i <= 450; i++) {
 }
 console.log(symbol);
 // 11、画一个实心的圆，半径至少为100像素
-for (var i = 150; i <= 350; i++) {
-  for(var j = 100; j <= 300; j++) {
-    var l = Math.sqrt((i - 250) * (i - 250) + (j - 200) * (j - 200))
-    if (l <= 100) {
-      symbol = symbol + dot(i,j,'pink')
+function circle(cx,cy,r) {
+  var x = 0
+  var y = r
+  while(x <= y) {
+    dot(x + cx,y + cy)
+    dot(x + cx,-y + cy)
+    dot(-x + cx,y + cy)
+    dot(-x + cx,-y + cy)
+    dot(y + cx,x + cy)
+    dot(-y + cx,x + cy)
+    dot(y + cx,-x + cy)
+    dot(-y + cx,-x + cy)
+    x++
+    var a = x * x + y * y
+    var b = x * x + (y - 1) * (y - 1)
+    if (Math.abs(a - r * r) > Math.abs( b - r * r)) {
+      y--
     }
   }
 }
-console.log(symbol)
-// 12、画一个【大小合适】的sin(x)的图像
-// 13、画出rgb色彩空间的某一面（尺寸要大于100x100）
-for (var i = 400; i<=500; i++) {
-  for ( var j = 300; j <= 400; j++) {
-    dot(i,j,'rgb(i, i , 0)')
+for (var i = 150; i < 350; i++) {
+  for(var j = 100; j <= 300;j++) {
+    var l = Math.sqrt((i - 250) * (i - 250) + (j - 200) * (j - 200))
+    if (l <= 100) {
+      dot(i,j,'red')
+    }
   }
 }
+// 12、画一个【大小合适】的sin(x)的图像
+// 13、画出rgb色彩空间的某一面（尺寸要大于100x100）
+for (var x = 0; x<=150; x++) {
+  for ( var y = 0; y <= 150; y++) {
+    var color = 'rgb(' + x / 150 * 256  + ',' + y / 150 * 256 + ' , 255)'
+    dot(x,y,color)
+    //     如果做出上一题后，尝试将其每个点的坐标乘以一个矩阵（如(2,0,0,2)或(1,0.27得到新的位置，即绘制出被线性变幻后的色彩空间某一面
+    //     可以考虑如下几种矩阵：
+    //        2 0
+    //        0 2
+    //        ------
+    //        1  0.27
+    //        0  1
+    //        ------
+    //        0.5    0.87
+    //        -0.87  0.5
+    var x1 = 2 * x
+    var y1 = 2 * y
+    dot(x1,y1,color)
+    var x2 = x
+    var y2 = 0.27 * x + y
+    dot(x2,y2,color)
+    var x3 = 0.5 * x - 0.87 * y
+    var y3 = 0.87 * x + 0.5 * y
+    dot(x3 + 100,y3 + 170,color)
+  }
+}
+</script>
+
+
+
+
+<script>
+  function rgb(r,g,b) {
+  return 'rgb(' + r + ',' + g + ',' + b +')'
+  }
 </script>
 </html>
