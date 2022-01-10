@@ -24,14 +24,21 @@ var  dwen_zheng = {
     return result
   },
 
-//********
+  // ********
  drop: function(array,n = 1) {
   for (let i = 0; i < n; i++) {
     array.shift(array[i])
   }
   return array
- }
+ },
 
+  // ********
+  dropRight: function(array,n = 1) {
+    for (let i = 0; i < n; i++) {
+      array.pop()
+    }
+    return array
+  },
 
 
 
