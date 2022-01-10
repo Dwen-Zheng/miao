@@ -13,7 +13,7 @@ var  dwen_zheng = {
     if (temp.length !== 0) result.push(temp)
 
     return result
-  }
+  },
 
   compact: function(array) {
 
