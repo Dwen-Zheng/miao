@@ -15,16 +15,22 @@ var  dwen_zheng = {
     return result
   },
 
+  // *******
   compact: function(array) {
     let result = []
     for (let i = 0; i < array.length; i++) {
-      if (array[i] > 0) {
-        result.push(array[i])
-      }
+      if (array[i] > 0)  result.push(array[i])
     }
     return result
-  }
+  },
 
+//********
+ drop: function(array,n = 1) {
+  for (let i = 0; i < n; i++) {
+    array.shift(array[i])
+  }
+  return array
+ }
 
 
 
