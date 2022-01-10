@@ -10,11 +10,15 @@ var  dwen_zheng = {
         temp = []
       }
     }
-    result.push(temp)
+    if (temp.length !== 0) result.push(temp)
+
     return result
   }
 
+  compact: function(array) {
 
+
+  }
 
 
 
