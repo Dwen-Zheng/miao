@@ -53,8 +53,39 @@ var  dwen_zheng = {
   isBoolean: function(value) {
     if (value === true || value === false || value.val === true || value.val === false) return true
     else return false
-  }
+  },
 
+  // ********
+  head: function(array) {
+    return array[0]
+  },
+
+  // ********
+  indexOf: function(array,value,fromIndex = 0) {
+    for (var i = fromIndex; i < array.length; i++) {
+      if (array[i] === value) return i
+    }
+  },
+
+  // ********
+  initial: function(array) {
+   if(!array) return []
+   var result = []
+   for (var i = 0; i < array.length - 1; i++) {
+     result.push(array[i])
+   }
+   return result
+  },
+
+  // ********
+  join: function(array, separator = ',') {
+    var result = ''
+    for (var i = 0; i < array.length - 1; i++) {
+      result += array[i] + separator
+    }
+    result += array[array.length - 1]
+    return result
+  }
 
 
 
