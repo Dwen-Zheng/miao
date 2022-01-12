@@ -40,6 +40,21 @@ var  dwen_zheng = {
     return array
   },
 
+  // ********
+  fill: function(array,value,start = 0,end = array.length){
+  //遍历start - end 并替换
+    for (let i = start; i < end; i++) {
+      array[i] = value
+    }
+    return array
+  },
+
+  // ********
+  isBoolean: function(value) {
+    if (value === true || value === false || value.val === true || value.val === false) return true
+    else return false
+  }
+
 
 
 
