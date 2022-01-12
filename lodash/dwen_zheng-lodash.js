@@ -85,8 +85,22 @@ var  dwen_zheng = {
     }
     result += array[array.length - 1]
     return result
-  }
+  },
+// ********
+  last: function(array) {
+    return array[array.length - 1]
+  },
 
+  // ******
+  reverse: function(array,values) {
+    var len = array.length
+    for (var i = 0; i < len / 2; i++) {
+      var t = array[i]
+      array[i] = array[len - i - 1]
+      array[len - i - 1] = t
+    }
+    return array
+  }
 
 
 
