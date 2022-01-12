@@ -81,12 +81,12 @@ var  dwen_zheng = {
   join: function(array, separator = ',') {
     var result = ''
     for (var i = 0; i < array.length - 1; i++) {
-      result += array[i] + separator
+      result += array[i]  + '' +separator
     }
     result += array[array.length - 1]
     return result
   },
-// ********
+  // ********
   last: function(array) {
     return array[array.length - 1]
   },
@@ -101,7 +101,7 @@ var  dwen_zheng = {
     }
     return array
   }
-
+  // *******
 
 
 
