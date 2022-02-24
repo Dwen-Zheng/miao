@@ -109,7 +109,7 @@ var  dwen_zheng = function() {
    * @return {Array} 返回一个过滤值后的新数组
    */
 
-  function diffendnce(array,...values) {
+  function difference(array,...values) {
     let set = new Set()
     for(let i = 0; i < values.length; i++) {
       values[i].forEach(item => set.add(item))
@@ -134,6 +134,14 @@ var  dwen_zheng = function() {
   }
 
 
+  /**
+   * @param {Array} 被连接的数组
+   * @param {...*} 连接的值
+   * @return {Array} 返回连接后的新数组
+   */
+  function concat(array,values) {
+
+  }
 
 
 
@@ -161,7 +169,7 @@ var  dwen_zheng = function() {
     join,
     last,
     reverse,
-    diffendnce,
+    difference,
     differenceBy,
   }
 
