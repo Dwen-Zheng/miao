@@ -1,5 +1,5 @@
-var  dwen_zheng = {
-  chunk: function(array, size) {
+var  dwen_zheng = function() {
+  function chunk(array, size) {
     if (array.length <= size) return array
     let result = []
     let temp = []
@@ -13,86 +13,86 @@ var  dwen_zheng = {
     if (temp.length !== 0) result.push(temp)
 
     return result
-  },
+  }
 
   // *******
-  compact: function(array) {
+  function compact(array) {
     let result = []
     for (let i = 0; i < array.length; i++) {
       if (array[i] > 0)  result.push(array[i])
     }
     return result
-  },
+  }
 
   // ********
- drop: function(array,n = 1) {
+  function drop(array,n = 1) {
   for (let i = 0; i < n; i++) {
     array.shift(array[i])
   }
   return array
- },
+  }
 
   // ********
-  dropRight: function(array,n = 1) {
+  function dropRight(array,n = 1) {
     for (let i = 0; i < n; i++) {
       array.pop()
     }
     return array
-  },
+  }
 
   // ********
-  fill: function(array,value,start = 0,end = array.length){
+  function fill(array,value,start = 0,end = array.length){
   //遍历start - end 并替换
     for (let i = start; i < end; i++) {
       array[i] = value
     }
     return array
-  },
+  }
 
   // ********
-  isBoolean: function(value) {
+  function isBoolean(value) {
     if (value === true || value === false || value.val === true || value.val === false) return true
     else return false
-  },
+  }
 
   // ********
-  head: function(array) {
+  function head(array) {
     return array[0]
-  },
+  }
 
   // ********
-  indexOf: function(array,value,fromIndex = 0) {
+  function indexOf(array,value,fromIndex = 0) {
     for (var i = fromIndex; i < array.length; i++) {
       if (array[i] === value) return i
     }
-  },
+  }
 
   // ********
-  initial: function(array) {
+  function initial(array) {
    if(!array) return []
    var result = []
    for (var i = 0; i < array.length - 1; i++) {
      result.push(array[i])
    }
    return result
-  },
+  }
 
   // ********
-  join: function(array, separator = ',') {
+  function join(array, separator = ',') {
     var result = ''
     for (var i = 0; i < array.length - 1; i++) {
       result += array[i]  + '' +separator
     }
     result += array[array.length - 1]
     return result
-  },
+  }
   // ********
-  last: function(array) {
+  function last(array) {
     return array[array.length - 1]
-  },
+  }
 
   // ******
-  reverse: function(array,values) {
+  function reverse(array,values) {
     var len = array.length
     for (var i = 0; i < len / 2; i++) {
       var t = array[i]
@@ -101,7 +101,37 @@ var  dwen_zheng = {
     }
     return array
   }
-  // *******
+
+
+  /**
+   * @param {Array} 要检查的数组
+   * @param {...Array} 排除的值
+   * @return {Array} 返回一个过滤值后的新数组
+   */
+
+  function diffendnce(array,...values) {
+    let set = new Set()
+    for(let i = 0; i < values.length; i++) {
+      values[i].forEach(item => set.add(item))
+    }
+    return array.filter(item => !set.has(item))
+  }
+
+  /**
+   * @param {Array} 要检查的数组
+   * @param {...Array} 排除的值
+   * @param {...Array} 排除的值
+   * @return {Array|Function|Object|string} iteratee 调用每个元素
+   */
+  function differenceBy(array,values,iteratee) {
+    let array2 = array.map(item => iteratee(item))
+    if(values.length == 1) { values2 = values.map(it =>iteratee(it))}
+    let values2 = values.map(item => item.map(it =>iteratee(it)))
+    let set = new Set()
+    values2.forEach(item => item.forEach(it => set.add(it)))
+    array2 = array2.filter(item => !set.has(item))
+    return array.filter(item = array2.indexOf(iteratee(item)) !== -1)
+  }
 
 
 
@@ -118,8 +148,21 @@ var  dwen_zheng = {
 
 
 
+  return {
+    chunk,
+    compact,
+    drop,
+    dropRight,
+    fill,
+    isBoolean,
+    head,
+    indexOf,
+    initial,
+    join,
+    last,
+    reverse,
+    diffendnce,
+    differenceBy,
+  }
 
-
-
-
-}
+}()
