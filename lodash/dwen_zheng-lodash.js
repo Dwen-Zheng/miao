@@ -139,13 +139,68 @@ var  dwen_zheng = function() {
    * @param {...*} 连接的值
    * @return {Array} 返回连接后的新数组
    */
-  function concat(array,values) {
+  function concat(array,...values) {
+    for(let value of values) {
+      if(Array.isArray(value)) {
+        array.push(...value)
+      } else {
 
+        array.push(value)
+      }
+    }
+    return array
   }
 
+    /**创建一个切片数组，去除array尾部的n个元素。（n默认值为1。）
+   * @param {Array} 要查询的数组
+   * @param {number} 要去除的元素个数
+   * @return {Array} 返回array剩余切片
+   */
+  function dropRight(array,n = 1) {
+    let res = array
+    for(let i = 0; i < n; i++) {
+      res.pop()
+    }
+    return res
+  }
 
+  /**创建一个切片数组，去除array中从 predicate 返回假值开始到尾部的部分。 predicate 会传入3个参数： (value, index, array)。
+   * @param {Array} 要查询的数组
+   * @param {function} 这个函数会在每一次迭代调用。
+   * @param {number} The index to search from
+   * @return {number} 返回找到元素的 索引值（index），否则返回 -1。
+   */
 
+  function findindex(array,){
+  }
 
+  /**创建一个切片数组，去除array中从 predicate 返回假值开始到尾部的部分。 predicate 会传入3个参数： (value, index, array)。
+   * @param {*} 用来比较的值
+   * @param {*} 另一个用来比较的值
+   * @return {boolean} 如果 两个值完全相同，那么返回 true，否则返回 false。。
+   */
+  function isEqual(value,other) {
+    if(typeof value !== typeof other) return false
+    //数组情况
+    if(Array.isArray(value)){
+     if( value.length !== other.length ) {//长度不相等则false
+       return false
+      } else {
+        for(let i = 0; i < value.length; i++) {//遍历数组
+          if(Array.isArray(value[i])) {
+            isEqual(value[i],other[i])
+          } else {
+            if(value[i] !== other[i]) return false
+          }
+        }
+      }
+    } else if(typeof value == 'object') { // 为对象时
+      for(let key in value) {
+        if(value.key !== other.key) return false
+      }
+    }else if(value !== other) {return false}
+    return true
+  }
 
 
 
@@ -171,6 +226,7 @@ var  dwen_zheng = function() {
     reverse,
     difference,
     differenceBy,
+    concat,
   }
 
 }()
