@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mini-regex101</title>
+  <style>
+    strong:nth-child(odd) {
+      background-color: #9fcfff;
+    }
+    strong:nth-child(even) {
+      background-color: #d5ebff;
+    }
+    em {
+      font-style: normal;
+    }
+    em:nth-child(1) {
+      background-color: #c4e8ac;
+    }
+    em:nth-child(2) {
+      background-color: #f6d7a6;
+    }
+    em:nth-child(3) {
+      background-color: #c8c8ff;
+    }
+    em:nth-child(4) {
+      background-color: #f2cfff;
+    }
+    em:nth-child(5) {
+      background-color: #ffc5bf;
+    }
+    em:nth-child(6) {
+      background-color: #c8e7d6;
+    }
+    strong:empty{
+      display: inline-block;
+      width: 2px;
+      height: 1.3em;
+      vertical-align: bottom;
+      margin-left: -1px;
+      margin-right: -1px;
+      background-color: red;
+    }
+    #string{
+      width: 400px;
+      position: relative;
+    }
+    textarea,pre {
+      /* position: absolute; */
+      top: 0;
+      margin: 0;
+      width: 100%;
+      height: 150px;
+      font-size: 24px;
+      font-family: consolas;
+      padding: 10px;
+      border: 1px solid;
+      background: transparent;
+      overflow: auto;
+      white-space: pre-wrap;
+      overflow-wrap: break-word;
+      line-height: 1.3;
+    }
+  </style>
+</head>
+<body>
+  <div>REGULAR EXPRESSION</div>
+  <input type="text" id="reInput" value="\b|f.." oninput="run()">
+  <div >
+    <label>g<input onclick= "run()" type="checkbox" checked id="reFlagGlobal"></label>
+    <label>m<input onclick= "run()" type="checkbox" id="reFlagMultiline"></label>
+    <label>i<input onclick= "run()" type="checkbox" id="reFlagIgnoreCase"></label>
+  </div>
+  <div>TEST STRING</div>
+  <div id="string">
+    <pre contenteditable id="testStringInput" oninput="run()"></pre>
+    <!-- <textarea onscroll="scrollSync()" spellcheck="false" id="testStringInput" cols="30" rows="5" oninput="run()">asdf as dfsd fsdf dfdsad fadg</textarea> -->
+  </div>
+
+
+  <script>
+    //可以用元素的id作为变量名访问到这个元素
+    function run() {
+      let reStr = reInput.value
+      let flags = getFlags()
+      let testString = testStringInput.textContent
+      if(reStr.length == 0) {
+        testStringInput.innerHTML = testString
+      }
+      try {
+        var re = new RegExp(reStr, flags + 'd')
+      } catch(e) {
+        if(e instanceof SyntaxError){
+          testStringInput.innerHTML = testString
+          return
+        } else {
+          throw e
+        }
+      }
+
+      let startIdx = 0
+      let match
+      let resultHTML = ''
+      let matchCount = 0
+
+      var start = Date.now()
+
+      while(match = re.exec(testString)) {
+        matchCount++
+        resultHTML += testString.slice(startIdx, match.index)
+        resultHTML += `<strong title="match ${matchCount}\npos:${match.index}-${match.index + match[0].length}">` + highlightGroups(match,matchCount) + '</strong>'
+        startIdx = re.lastIndex
+        if(match[0] == '') {// 如果匹配到的是空白内容，则主动增加lastIndex的值，否则会进入死循环的
+          re.lastIndex++
+        }
+        if(!re.global) {
+          break
+        }
+      }
+      var end = Date.now
+      resultHTML += testString.slice(startIdx)
+      testStringInput.innerHTML = resultHTML
+    }
+
+    run()
+
+    function scrollSync() {//同步滚动
+      resultShow.scrollTop = testStringInput.scrollTop
+    }
+
+    function highlightGroups(match,matchIndex){
+      var result = ''
+      var matchString = match[0]
+      var groupRanges = match.indices.map(range => {
+        var start = range[0]
+        var end = range[1]
+        return [start - match.index, end - match.index]
+      })  // 每个捕获在匹配到的字符串中的下标范围
+      groupRanges.shift()// 删掉第一项
+      var startIdx = 0
+      var count = 1
+      for(var range of groupRanges) {
+        result += matchString.slice(startIdx, range[0])
+        result += `<em title="Match ${matchIndex}\nGroup ${count++}\nPos: ${range[0]}-${range[1]}">` + matchString.slice(range[0], range[1]) + '</em>'
+        startIdx = range[1]
+      }
+      result += matchString.slice(startIdx)
+      return result
+    }
+    function getFlags() {
+      flags = ''
+      if(reFlagGlobal.checked) {
+        flags += 'g'
+      }
+      if(reFlagMultiline.checked) {
+        flags += 'm'
+      }
+      if(reFlagIgnoreCase.checked) {
+        flags += 'i'
+      }
+      return flags
+    }
+  </script>
+</body>
+</html>
