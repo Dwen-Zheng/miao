@@ -267,6 +267,19 @@ var  dwen_zheng = function() {
     })
    }
 
+   /**
+   * @param {Array/object} 一个用来迭代的集合
+   * @param {Function} 每次迭代调用的函数
+   * @return {*} 返回集合
+   */
+
+   function forEach(collection, iter) {
+       for(let key in collection) {
+         iter(collection[key], key, collection )
+       }
+       return collection
+   }
+
 
 
 
@@ -294,6 +307,7 @@ var  dwen_zheng = function() {
     filter,
     find,
     iteratee,
+    forEach,
   }
 
 }()
