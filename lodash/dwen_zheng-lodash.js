@@ -292,6 +292,7 @@ var  dwen_zheng = function() {
     isEqualWith,
     isFunction,
     filter,
+    find,
     iteratee,
   }
 
