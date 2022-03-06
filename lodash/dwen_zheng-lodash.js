@@ -1,4 +1,17 @@
 var  dwen_zheng = function() {
+
+  function iteratee(predicate) {  // 将 predicate 转为函数
+    if (typeof predicate === 'string') {
+      predicate = property(predicate)
+    }
+    if (Array.isArray(predicate)) {
+      predicate = matchesProperty(...predicate)
+    }
+    if (typeof predicate === 'object') {
+      predicate = matches(predicate)
+    }
+    return predicate  // 不是以上类型，就返回本身（函数）
+  }
   function chunk(array, size) {
     if (array.length <= size) return array
     let result = []
@@ -174,7 +187,7 @@ var  dwen_zheng = function() {
   function findindex(array,){
   }
 
-  /**创建一个切片数组，去除array中从 predicate 返回假值开始到尾部的部分。 predicate 会传入3个参数： (value, index, array)。
+  /**
    * @param {*} 用来比较的值
    * @param {*} 另一个用来比较的值
    * @return {boolean} 如果 两个值完全相同，那么返回 true，否则返回 false。。
@@ -202,10 +215,57 @@ var  dwen_zheng = function() {
     return true
   }
 
+   /**
+   * @param {*} 用来比较的值
+   * @param {*} 另一个用来比较的值
+   * @param {function} 用来定制比较值的函数。
+   * @return {boolean} 如果 两个值完全相同，那么返回 true，否则返回 false。。
+   */
+
+   function  isEqualWith(value,other,customizer) {
+     if(value == other) return true
+     if(customizer(value) !== customizer(other)) return false
+     return true
+   }
+
+   /**
+   * @param {*} 要检查的值
+   * @return {boolean} 如果 value 是一个函数，那么返回 true，否则返回 false。
+   */
+   function isFunction(value) {
+     if(typeof valud == 'function' || value == null) return true
+     return false
+   }
 
 
+   /**
+   * @param {Array/object} 一个用来迭代的集合
+   * @param {Array|Function|Object|string} 每次迭代调用的函数
+   * @return {Array} 返回一个新的过滤后的数组
+   */
+   function filter(collection,predicate) {
+     let res = []
+     predicate =iteratee(predicate)
+     collection.forEach(it => {
+       if(predicate(it)) {
+         res.push(it)
+       }
+      })
+     return res
+   }
 
-
+   /**
+   * @param {Array/object} 一个用来迭代的集合
+   * @param {Array|Function|Object|string} 每次迭代调用的函数
+   * @param {number} 开始搜索的索引位置
+   * @return {*} 返回匹配元素，否则返回 undefined
+   */
+   function find(collection, predicate, fromIndex = 0) {
+    predicate = iteratee(predicate)
+    collection.forEach(it => {
+      if(predicate(it)) return it
+    })
+   }
 
 
 
@@ -227,6 +287,12 @@ var  dwen_zheng = function() {
     difference,
     differenceBy,
     concat,
+    findindex,
+    isEqual,
+    isEqualWith,
+    isFunction,
+    filter,
+    iteratee,
   }
 
 }()
