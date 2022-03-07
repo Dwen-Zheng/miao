@@ -262,9 +262,12 @@ var  dwen_zheng = function() {
    */
    function find(collection, predicate, fromIndex = 0) {
     predicate = iteratee(predicate)
-    collection.forEach(it => {
-      if(predicate(it)) return it
-    })
+      for(let key in collection) {
+        if(predicate(collection[key])) {
+          return collection
+        }
+      }
+      return undefined
    }
 
    /**
