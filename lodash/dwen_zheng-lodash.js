@@ -260,7 +260,7 @@ var  dwen_zheng = function() {
    * @param {number} 开始搜索的索引位置
    * @return {*} 返回匹配元素，否则返回 undefined
    */
-   function find(collection, predicate, fromIndex = 0) {
+   function find(collection, predicate) {
     predicate = iteratee(predicate)
       for(let key in collection) {
         if(predicate(collection[key])) {
