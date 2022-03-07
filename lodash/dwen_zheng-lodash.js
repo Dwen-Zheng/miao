@@ -263,8 +263,8 @@ var  dwen_zheng = function() {
    function find(collection, predicate) {
     predicate = iteratee(predicate)
       for(let key in collection) {
-        if(predicate(collection[key])) {
-          return collection
+        if(predicate(collection[key]), key, collection) {
+          return collection[key]
         }
       }
       return undefined
@@ -283,6 +283,18 @@ var  dwen_zheng = function() {
        return collection
    }
 
+   /**
+   * @param {Array/object} 一个用来迭代的集合
+   * @param {Array|Function|Object|string} 每次迭代调用的函数
+   * @return {Array} 返回新的映射后数组
+   */
+  function map(collection, predicate) {
+    let res = []
+    predicate = iteratee(predicate)
+    collection.forEach(it => {
+      res.push(predicate(it))
+    })
+  }
 
 
 
