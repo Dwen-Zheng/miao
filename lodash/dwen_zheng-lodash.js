@@ -269,6 +269,51 @@ var  dwen_zheng = function() {
       }
       return undefined
    }
+   /**
+   * @param {Array} 要搜索的数组
+   * @param {Array|Function|Object|string} 这个函数会在每一次迭代调用
+   * @param {number} 开始搜索的索引位置
+   * @return {number} 返回找到元素的 索引值（index），否则返回 -1
+   */
+   function findIndex(array, predicate,fromIndex = 0) {
+    for( let i = fromIndex; i < array.length; i++) {
+      if(predicate(array[i])) {
+        return i
+      }
+    }
+    return -1
+   }
+
+   /**
+   * @param {Array} 要搜索的数组
+   * @param {Array|Function|Object|string} 这个函数会在每一次迭代调用
+   * @param {number} 开始搜索的索引位置
+   * @return {number} 返回找到元素的 索引值（index），否则返回 -1
+   */
+    function findLastIndex(array, predicate,fromIndex = array.length - 1) {
+      for( let i = fromIndex; i >= 0; i--) {
+        if(predicate(array[i])) {
+          return i
+        }
+      }
+      return -1
+     }
+
+
+       /**
+   * @param {Array} 要填充改变的数组
+   * @param {value} 填充给 array 的值
+   * @param {number} 开始位置（默认0
+   * @param {number} 结束位置（默认array.length
+   * @return {number} 返回 array
+   */
+     function fill(array, value, start = 0, end = array.length) {
+       for(let i = start; i < end; i++) {
+        array[i] = value
+       }
+       return array
+     }
+
 
    /**
    * @param {Array/object} 一个用来迭代的集合
@@ -334,7 +379,9 @@ var  dwen_zheng = function() {
     difference,
     differenceBy,
     concat,
-    findindex,
+    findIndex,
+    findLastIndex,
+    fill,
     isEqual,
     isEqualWith,
     isFunction,
