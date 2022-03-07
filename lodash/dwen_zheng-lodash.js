@@ -323,6 +323,8 @@ var  dwen_zheng = function() {
     find,
     iteratee,
     forEach,
+    map,
+    reduce,
   }
 
 }()
