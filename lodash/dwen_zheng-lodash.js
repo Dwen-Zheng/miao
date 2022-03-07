@@ -304,7 +304,7 @@ var  dwen_zheng = function() {
    * @return {*} 返回累加后的值
    */
 
-   reduce(collection, predicate, accumulator) {
+   function reduce(collection, predicate, accumulator) {
      if(accumulator) predicate(accumulator)
      for(let key in collection) {
        predicate(accumulator, collection[key], key, collection)
