@@ -291,10 +291,26 @@ var  dwen_zheng = function() {
   function map(collection, predicate) {
     let res = []
     predicate = iteratee(predicate)
-    collection.forEach(it => {
-      res.push(predicate(it))
-    })
+   for(let key in collection) {
+     res.push(predicate(collection[key], key,collection))
+   }
+   return res
   }
+
+   /**
+   * @param {Array/object} 一个用来迭代的集合
+   * @param {iteratee=_.identity} 每次迭代调用的函数
+   * @param {accumulator} 初始值
+   * @return {*} 返回累加后的值
+   */
+
+   reduce(collection, predicate, accumulator) {
+     if(accumulator) predicate(accumulator)
+     for(let key in collection) {
+       predicate(accumulator, collection[key], key, collection)
+     }
+     return accumulator
+   }
 
 
 
