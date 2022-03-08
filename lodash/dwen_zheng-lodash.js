@@ -235,9 +235,6 @@ var  dwen_zheng = function() {
     return true
   }
 
-  function matches(source) {
-    return isMatch(obj,source)
-  }
 
   function matchesProperty(path, srcValue) {
     if(isEqual(path, srcValue)) return true
