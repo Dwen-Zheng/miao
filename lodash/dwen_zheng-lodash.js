@@ -398,6 +398,7 @@ var  dwen_zheng = function() {
     fill,
     isEqual,
     isObject,
+    isMatch,
     isEqualWith,
     isFunction,
     filter,
