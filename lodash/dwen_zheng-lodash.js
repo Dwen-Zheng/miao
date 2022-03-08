@@ -303,6 +303,7 @@ var  dwen_zheng = function() {
    * @return {number} 返回找到元素的 索引值（index），否则返回 -1
    */
    function findIndex(array, predicate,fromIndex = 0) {
+     predicate = iteratee(predicate)
     for( let i = fromIndex; i < array.length; i++) {
       if(predicate(array[i])) {
         return i
