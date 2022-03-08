@@ -218,6 +218,15 @@ var  dwen_zheng = function() {
   function isObject(obj) {
     return (typeof obj == 'object' && obj !== null) || typeof obj == 'function'
   }
+
+   /**
+   * @param {object} 要检查的对象
+   * @param {object} 属性值相匹配的对象
+   * @return {boolean} 如果 两个值完全相同，那么返回 true，否则返回 false。。
+   */
+  function isMatch() {
+
+  }
    /**
    * @param {*} 用来比较的值
    * @param {*} 另一个用来比较的值
