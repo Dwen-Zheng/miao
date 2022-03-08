@@ -216,7 +216,7 @@ var  dwen_zheng = function() {
 
 
   function isObject(obj) {
-    return typeof obj == 'object'
+    return (typeof obj == 'object' && ob !== null) || typeof obj == 'function'
   }
    /**
    * @param {*} 用来比较的值
