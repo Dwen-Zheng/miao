@@ -209,14 +209,14 @@ var  dwen_zheng = function() {
     if(valueKeys.length !== otherKeys.length) return false
     //否则判断键值对是否相同
     for(let key in value) {
-     if(value[key] !== other[key])  return false
+     if(valueKeys[key] !== otherKeys[key])  return false
     }
     return true
   }
 
 
   function isObject(obj) {
-    return (typeof obj == 'object' && ob !== null) || typeof obj == 'function'
+    return (typeof obj == 'object' && obj !== null) || typeof obj == 'function'
   }
    /**
    * @param {*} 用来比较的值
@@ -235,10 +235,9 @@ var  dwen_zheng = function() {
    * @param {*} 要检查的值
    * @return {boolean} 如果 value 是一个函数，那么返回 true，否则返回 false。
    */
-   function isFunction(value) {
-     if(typeof valud == 'function' || value == null) return true
-     return false
-   }
+    function isFunction(val) {
+      return Object.prototype.toString.call(val) == '[object Function]'
+  }
 
 
    /**
