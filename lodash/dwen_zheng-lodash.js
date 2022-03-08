@@ -228,8 +228,9 @@ var  dwen_zheng = function() {
     for(let key in source) {
       if(typeof source[key] == 'object') { // 为对象时则进行深度比较
         isMatch(obj[key], source[key])
-      }
-      if (source[key] !== obj[key]) return false
+      } else {
+        if (source[key] !== obj[key]) return false
+        }
     }
     return true
   }
