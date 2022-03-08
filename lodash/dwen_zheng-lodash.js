@@ -194,16 +194,6 @@ var  dwen_zheng = function() {
     return res
   }
 
-  /**创建一个切片数组，去除array中从 predicate 返回假值开始到尾部的部分。 predicate 会传入3个参数： (value, index, array)。
-   * @param {Array} 要查询的数组
-   * @param {function} 这个函数会在每一次迭代调用。
-   * @param {number} The index to search from
-   * @return {number} 返回找到元素的 索引值（index），否则返回 -1。
-   */
-
-  function findindex(array,){
-  }
-
   /**
    * @param {*} 用来比较的值
    * @param {*} 另一个用来比较的值
@@ -226,7 +216,7 @@ var  dwen_zheng = function() {
 
 
   function isObject(obj) {
-    return typeof obj == 'object' && obj !== null
+    return typeof obj == 'object'
   }
    /**
    * @param {*} 用来比较的值
