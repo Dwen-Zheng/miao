@@ -234,6 +234,15 @@ var  dwen_zheng = function() {
     }
     return true
   }
+
+  function matches(source) {
+    return isMatch(obj,source)
+  }
+
+  function matchesProperty(path, srcValue) {
+    if(isEqual(path, srcValue)) return true
+    return  false
+  }
    /**
    * @param {*} 用来比较的值
    * @param {*} 另一个用来比较的值
@@ -402,6 +411,8 @@ var  dwen_zheng = function() {
     isEqual,
     isObject,
     isMatch,
+    matches,
+    matchesProperty,
     isEqualWith,
     isFunction,
     filter,
