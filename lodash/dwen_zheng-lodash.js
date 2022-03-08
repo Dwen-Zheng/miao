@@ -217,13 +217,14 @@ var  dwen_zheng = function() {
     let valueKeys = Object.keys(value)
     let otherKeys = Object.keys(other)
     if(valueKeys.length !== otherKeys.length) return false
+    //否则判断键值对是否相同
+    for(let key in value) {
+     if(value[key] !== other[key])  return false
+    }
+    return true
   }
-  //否则判断键值对是否相同
-  for(let key in value) {
-   if(value[key] !== other[key])  return false
-  }
-  return true
-//
+
+
   function isObject(obj) {
     return typeof obj == 'object' && obj !== null
   }
@@ -369,9 +370,6 @@ var  dwen_zheng = function() {
      return accumulator
    }
 
-   function mm() {
-
-   }
 
 
 
