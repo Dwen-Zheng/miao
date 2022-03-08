@@ -379,6 +379,8 @@ var  dwen_zheng = function() {
 
 
   return {
+    iteratee,
+    property,
     chunk,
     compact,
     drop,
@@ -404,7 +406,6 @@ var  dwen_zheng = function() {
     isFunction,
     filter,
     find,
-    iteratee,
     forEach,
     map,
     reduce,
