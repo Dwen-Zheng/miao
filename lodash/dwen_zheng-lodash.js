@@ -223,7 +223,7 @@ var  dwen_zheng = function() {
    if(value[key] !== other[key])  return false
   }
   return true
-
+//
   function isObject(obj) {
     return typeof obj == 'object' && obj !== null
   }
