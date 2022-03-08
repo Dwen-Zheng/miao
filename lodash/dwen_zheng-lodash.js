@@ -224,8 +224,14 @@ var  dwen_zheng = function() {
    * @param {object} 属性值相匹配的对象
    * @return {boolean} 如果 两个值完全相同，那么返回 true，否则返回 false。。
    */
-  function isMatch() {
-
+  function isMatch(obj, source) {
+    for(let key in source) {
+      if(typeof source[key] == 'object') { // 为对象时则进行深度比较
+        isMatch(obj[key], source[key])
+      }
+      if (source[key] !== obj[key]) return false
+    }
+    return true
   }
    /**
    * @param {*} 用来比较的值
