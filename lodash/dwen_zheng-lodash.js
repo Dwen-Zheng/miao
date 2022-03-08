@@ -210,28 +210,23 @@ var  dwen_zheng = function() {
    * @return {boolean} 如果 两个值完全相同，那么返回 true，否则返回 false。。
    */
   function isEqual(value,other) {
-    if(typeof value !== typeof other) return false
-    //数组情况
-    if(Array.isArray(value)){
-     if( value.length !== other.length ) {//长度不相等则false
-       return false
-      } else {
-        for(let i = 0; i < value.length; i++) {//遍历数组
-          if(Array.isArray(value[i])) {
-            isEqual(value[i],other[i])
-          } else {
-            if(value[i] !== other[i]) return false
-          }
-        }
-      }
-    } else if(typeof value == 'object') { // 为对象时
-      for(let key in value) {
-        if(value[key] !== other[key]) return false
-      }
-    }
-    return true
+    //参数有一个不是对象，直接判断值是否相等
+    if(!isObject(value) || !isObject(other)) return value == other
+    //两个参数都是数组或者对象
+    //判断长度是否相等
+    let valueKeys = Object.keys(value)
+    let otherKeys = Object.keys(other)
+    if(valueKeys.length !== otherKeys.length) return false
   }
+  //否则判断键值对是否相同
+  for(let key in value) {
+   if(value[key] !== other[key])  return false
+  }
+  return true
 
+  function isObject(obj) {
+    return typeof obj == 'object' && obj !== null
+  }
    /**
    * @param {*} 用来比较的值
    * @param {*} 另一个用来比较的值
@@ -400,6 +395,7 @@ var  dwen_zheng = function() {
     findLastIndex,
     fill,
     isEqual,
+    isObject,
     isEqualWith,
     isFunction,
     filter,
