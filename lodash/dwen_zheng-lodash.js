@@ -12,6 +12,23 @@ var  dwen_zheng = function() {
     }
     return predicate  // 不是以上类型，就返回本身（函数）
   }
+
+  function property(path) {
+    return function(obj) {
+      return obj[path]
+    }
+  }
+
+  function matches(source) {
+    return function (obj) {
+      for(key in source) {
+        if(source[key] !== obj[key]) {
+          return false
+        }
+      }
+      return true
+    }
+  }
   function chunk(array, size) {
     if (array.length <= size) return array
     let result = []
@@ -209,9 +226,9 @@ var  dwen_zheng = function() {
       }
     } else if(typeof value == 'object') { // 为对象时
       for(let key in value) {
-        if(value.key !== other.key) return false
+        if(value[key] !== other[key]) return false
       }
-    }else if(value !== other) {return false}
+    }
     return true
   }
 
