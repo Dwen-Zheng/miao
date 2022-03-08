@@ -237,8 +237,9 @@ var  dwen_zheng = function() {
 
 
   function matchesProperty(path, srcValue) {
-    if(isEqual(path, srcValue)) return true
-    return  false
+    return function(obj) {
+      return isEqual(obj[path],srcValue)
+    }
   }
    /**
    * @param {*} 用来比较的值
