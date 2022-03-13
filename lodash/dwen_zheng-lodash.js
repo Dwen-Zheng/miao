@@ -396,7 +396,6 @@ var  dwen_zheng = function() {
      }
      return true
    }
-
    function isError(val) {
     return Object.prototype.toString.call(val) == '[object Error]'
    }
@@ -439,6 +438,7 @@ var  dwen_zheng = function() {
     isDate,
     isElement,
     isError,
+    isEmpty
   }
 
 }()
