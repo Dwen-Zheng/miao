@@ -235,7 +235,6 @@ var  dwen_zheng = function() {
     return true
   }
 
-
   function matchesProperty(path, srcValue) {
     return function(obj) {
       return isEqual(obj[path],srcValue)
@@ -268,16 +267,30 @@ var  dwen_zheng = function() {
    * @param {Array|Function|Object|string} 每次迭代调用的函数
    * @return {Array} 返回一个新的过滤后的数组
    */
-   function filter(collection,predicate) {
-     let res = []
-     predicate =iteratee(predicate)
-     collection.forEach(it => {
-       if(predicate(it)) {
-         res.push(it)
-       }
-      })
-     return res
-   }
+  //  function filter(collection,predicate) {
+  //    let res = []
+  //    predicate =iteratee(predicate)
+  //    collection.forEach(it => {
+  //      if(predicate(it)) {
+  //        res.push(it)
+  //      }
+  //     })
+  //    return res
+  //  }
+
+   function(collection, predicate) {
+    let result = []
+    if (typeof predicate !== 'function') {
+        predicate = this.func(predicate)
+    }
+    for (key in collection) {
+        if (predicate(collection[key])) {
+            result.push(collection[key])
+        }
+    }
+    return result
+}
+
 
    /**
    * @param {Array/object} 一个用来迭代的集合
