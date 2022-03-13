@@ -384,6 +384,22 @@ var  dwen_zheng = function() {
      return accumulator
    }
 
+   function isDate(value) {
+    return Object.prototype.toString.call(value) == '[object Date]'
+   }
+   function isElement(val) {
+     return Object.prototype.toString.call(val) == '[object Element]'
+   }
+   function isEmpty(val) {
+     for(let key in val ) {
+       return false
+     }
+     return true
+   }
+
+   function isError(val) {
+    return Object.prototype.toString.call(val) == '[object Error]'
+   }
 
 
 
@@ -420,6 +436,9 @@ var  dwen_zheng = function() {
     forEach,
     map,
     reduce,
+    isDate,
+    isElement,
+    isError,
   }
 
 }()
