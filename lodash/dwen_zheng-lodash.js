@@ -81,7 +81,7 @@ var  dwen_zheng = function() {
 
   // ********
   function isBoolean(value) {
-    if (value === true || value === false || value.val === true || value.val === false) return true
+    if (value === 'true' || value === 'false') return true
     else return false
   }
 
