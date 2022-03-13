@@ -278,7 +278,7 @@ var  dwen_zheng = function() {
   //    return res
   //  }
 
-   function(collection, predicate) {
+   function filter(collection, predicate) {
     let result = []
     if (typeof predicate !== 'function') {
         predicate = this.func(predicate)
