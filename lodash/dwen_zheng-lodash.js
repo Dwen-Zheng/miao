@@ -267,30 +267,16 @@ var  dwen_zheng = function() {
    * @param {Array|Function|Object|string} 每次迭代调用的函数
    * @return {Array} 返回一个新的过滤后的数组
    */
-  //  function filter(collection,predicate) {
-  //    let res = []
-  //    predicate =iteratee(predicate)
-  //    collection.forEach(it => {
-  //      if(predicate(it)) {
-  //        res.push(it)
-  //      }
-  //     })
-  //    return res
-  //  }
-
-   function filter(collection, predicate) {
-    let result = []
-    if (typeof predicate !== 'function') {
-        predicate = this.func(predicate)
-    }
-    for (key in collection) {
-        if (predicate(collection[key])) {
-            result.push(collection[key])
-        }
-    }
-    return result
-}
-
+   function filter(collection,predicate) {
+     let res = []
+     predicate =iteratee(predicate)
+     collection.forEach(it => {
+       if(predicate(it)) {
+         res.push(it)
+       }
+      })
+     return res
+   }
 
    /**
    * @param {Array/object} 一个用来迭代的集合
@@ -390,8 +376,9 @@ var  dwen_zheng = function() {
    */
 
    function reduce(collection, predicate, accumulator) {
-     if(accumulator) predicate(accumulator)
+     predicate = iteratee(predicate)
      for(let key in collection) {
+       if(!accumulator) accumulator = collection[key]
        predicate(accumulator, collection[key], key, collection)
      }
      return accumulator
