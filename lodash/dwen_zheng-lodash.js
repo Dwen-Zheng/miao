@@ -392,13 +392,67 @@ var  dwen_zheng = function() {
    }
    function isEmpty(val) {
      for(let key in val ) {
-       return false
+       if(key) {
+         return false
+       }
      }
      return true
    }
    function isError(val) {
     return Object.prototype.toString.call(val) == '[object Error]'
    }
+
+   function isNaN(val) {
+     return Object.prototype.toString.call(val) == '[object Number]'
+   }
+
+   function inFinite(val) {
+     if(val == infinity || val == -infinity) return false
+     return typeof(val) == 'number'
+   }
+
+   function isNil(val) {
+     return val == 'null' || val == 'undefined'
+   }
+
+   function isNull(val) {
+     return val == 'null'
+   }
+
+   function isNumber(val) {
+      return isFinite(val)
+   }
+
+   function isRegExp() {
+     return Object.prototype.toString.call(val) == '[object RegExp]'
+   }
+
+   function isSt(val) {
+     return Object.prototype.toString.call(val) == '[object String'
+   }
+
+   function isUndefined(val) {
+     return val == 'undefined'
+   }
+
+   function toArray(val) {
+     let res = []
+    for(let key in val) {
+      res.push(val[key])
+    }
+    return res
+   }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -438,7 +492,15 @@ var  dwen_zheng = function() {
     isDate,
     isElement,
     isError,
-    isEmpty
+    isEmpty,
+    isNaN,
+    inFinite,
+    isNil,
+    isNull,
+    isNumber,
+    isRegExp,
+    isSt,
+    isUndefined
   }
 
 }()
