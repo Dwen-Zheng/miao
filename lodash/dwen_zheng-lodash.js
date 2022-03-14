@@ -443,6 +443,15 @@ var  dwen_zheng = function() {
     return res
    }
 
+   function ceil(number, precision = 0) {
+     let x = 10 ** (-precision)
+     let remain = number % x
+     if(!remain) {
+       return number
+     }
+     return number - remain + x
+   }
+
 
 
 
@@ -500,7 +509,9 @@ var  dwen_zheng = function() {
     isNumber,
     isRegExp,
     isSt,
-    isUndefined
+    isUndefined,
+    toArray,
+    ceil,
   }
 
 }()
