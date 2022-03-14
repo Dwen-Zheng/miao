@@ -412,18 +412,18 @@ var  dwen_zheng = function() {
    }
 
    function isNil(val) {
-     return val == 'null' || val == 'undefined'
+     return val == null || val == undefined
    }
 
    function isNull(val) {
-     return val == 'null'
+     return val == null
    }
 
    function isNumber(val) {
-      return isFinite(val)
+      return Object.prototype.toString.call(val) == '[object Number]'
    }
 
-   function isRegExp() {
+   function isRegExp(val) {
      return Object.prototype.toString.call(val) == '[object RegExp]'
    }
 
@@ -432,7 +432,7 @@ var  dwen_zheng = function() {
    }
 
    function isUndefined(val) {
-     return val == 'undefined'
+     return typeof(val) == 'undefined'
    }
 
    function toArray(val) {
